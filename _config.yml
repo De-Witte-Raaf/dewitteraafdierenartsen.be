@@ -1,0 +1,71 @@
+# Jekyll Site Configuration for De Witte Raaf Dierenartsen
+title: "Dierenartsencentrum De Witte Raaf"
+tagline: "Uw dier, onze zorg"
+description: "Dierenartsencentrum De Witte Raaf in Oordegem (Lede). Persoonlijke en kwalitatieve diergeneeskundige zorg voor gezelschapsdieren, inclusief 24/7 spoedzorg en Gold Certified Cat Friendly Clinic."
+url: "https://dewitteraafdierenartsen.be"
+baseurl: ""
+lang: "nl-BE"
+locale: "nl_BE"
+
+# Author / Clinic
+author:
+  name: "Dierenartsencentrum De Witte Raaf"
+  email: "dac@dewitteraafdierenartsen.be"
+
+# Contact Form
+formward_endpoint: "https://formward.com/f/dapdewitteraaf"
+contact_email: "dac@dewitteraafdierenartsen.be"
+
+# Collections
+collections:
+  team:
+    output: true
+    permalink: /team/:name/
+  services:
+    output: false
+  reviews:
+    output: false
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "team"
+    values:
+      layout: "team_member"
+
+# Markdown & Syntax
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - scripts
+  - assets/images/source
+  - README.md
+  - LICENSE
+
+# Keep generated images in output
+include:
+  - _services
+  - _reviews
+  - _team
+  - assets/images/generated
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag

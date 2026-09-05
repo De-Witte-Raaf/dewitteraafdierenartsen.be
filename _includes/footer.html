@@ -1,0 +1,146 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main-grid">
+      <!-- Column 1: Identity & Vision -->
+      <div class="footer-col">
+        <a href="/" aria-label="Home">
+          <img src="/assets/branding/logos/dewitteraaf_woordmerk_horizontaal_wit.svg" alt="De Witte Raaf Dierenartsen" class="footer-logo" width="220" height="38">
+        </a>
+        <p style="font-size: 1.05rem; font-weight: 500; color: var(--color-pastel-lime); margin-bottom: 0.75rem;">
+          {{ site.data.clinic.tagline }}
+        </p>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem;">
+          Persoonlijke, diervriendelijke en hoogwaardige veterinaire zorg voor gezelschapsdieren in Oordegem en omstreken.
+        </p>
+        <span class="badge badge-lime" style="margin-bottom: 0.85rem;">
+          🐱 Gold Certified Cat Friendly Clinic
+        </span>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">
+          BTW-nummer: {{ site.data.clinic.vat_number }}
+        </p>
+      </div>
+
+      <!-- Column 2: Openingsuren & Spoed -->
+      <div class="footer-col">
+        <h4>Openingsuren</h4>
+        <p style="font-size: 0.82rem; color: var(--color-pastel-lime); margin-bottom: 0.75rem;">
+          {{ site.data.clinic.opening_hours.consultation_note }}
+        </p>
+        <ul style="list-style: none; font-size: 0.85rem; display: grid; gap: 0.35rem; margin-bottom: 1.25rem;">
+          {% for item in site.data.clinic.opening_hours.schedule %}
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.25rem;">
+            <span>{{ item.day }}:</span>
+            <span style="font-weight: 600; {% if item.emergency_only %}color: var(--color-pastel-pink);{% endif %}">
+              {% if item.emergency_only %}Enkel spoed{% else %}{{ item.morning }} & {{ item.afternoon }}{% endif %}
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <div class="footer-emergency-box">
+          <h5>🚨 24/7 Spoedgeval?</h5>
+          <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Bel onze eigen wachtdienst:</p>
+          <a href="tel:{{ site.data.clinic.contact.emergency_phone_clean }}" class="btn btn-secondary btn-sm" style="width: 100%;">
+            📞 {{ site.data.clinic.contact.emergency_phone }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 3: Contact & Afspraak -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>
+          <strong>Dierenartsencentrum De Witte Raaf</strong><br>
+          {{ site.data.clinic.contact.address.street }}<br>
+          {{ site.data.clinic.contact.address.postal_code }} {{ site.data.clinic.contact.address.city }}
+        </p>
+        <p style="margin-top: 0.75rem;">
+          <strong>Tel:</strong> <a href="tel:{{ site.data.clinic.contact.phone_clean }}">{{ site.data.clinic.contact.phone }}</a><br>
+          <strong>E-mail:</strong> <a href="mailto:{{ site.data.clinic.contact.email }}">{{ site.data.clinic.contact.email }}</a>
+        </p>
+
+        <div style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+          <a href="{{ site.data.clinic.contact.booking_url }}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="width: 100%;">
+            📅 Online afspraak maken
+          </a>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <a href="{{ site.data.clinic.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram" style="background: rgba(255,255,255,0.12); padding: 0.5rem; border-radius: 50%; display: flex;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637s-0.009,2.688-0.052,3.637c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035c-0.315,0.315-0.615,0.51-1.035,0.673c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31c-0.42-0.163-0.72-0.358-1.035-0.673c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671C4.631,14.688,4.622,14.403,4.622,12s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671c0.163-0.42,0.358-0.72,0.673-1.035c0.315-0.315,0.615-0.51,1.035-0.673c0.317-0.123,0.794-0.27,1.671-0.31C9.312,4.631,9.597,4.622,12,4.622 M12,3 C9.556,3,9.249,3.01,8.289,3.054C7.331,3.098,6.677,3.25,6.105,3.472C5.513,3.702,5.011,4.01,4.511,4.511c-0.5,0.5-0.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289C3.01,9.249,3,9.556,3,12c0,2.444,0.01,2.751,0.054,3.711c0.044,0.958,0.196,1.612,0.418,2.185c0.23,0.592,0.538,1.094,1.038,1.594c0.5,0.5,1.002,0.808,1.594,1.038c0.572,0.222,1.227,0.375,2.185,0.418C9.249,20.99,9.556,21,12,21s2.751-0.01,3.711-0.054c0.958-0.044,1.612-0.196,2.185-0.418c0.592-0.23,1.094-0.538,1.594-1.038c0.5-0.5,0.808-1.002,1.038-1.594c0.222-0.572,0.375-1.227,0.418-2.185C20.99,14.751,21,14.444,21,12s-0.01-2.751-0.054-3.711c-0.044-0.958-0.196-1.612-0.418-2.185c-0.23-0.592-0.538-1.094-1.038-1.594c-0.5-0.5-1.002-0.808-1.594-1.038c-0.572-0.222-1.227-0.375-2.185-0.418C14.751,3.01,14.444,3,12,3L12,3z M12,7.378 c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378z M12,15 c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S13.657,15,12,15z M16.804,6.116c-0.596,0-1.08,0.484-1.08,1.08s0.484,1.08,1.08,1.08c0.596,0,1.08-0.484,1.08-1.08S17.401,6.116,16.804,6.116z"/></svg>
+          </a>
+          <a href="{{ site.data.clinic.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook" style="background: rgba(255,255,255,0.12); padding: 0.5rem; border-radius: 50%; display: flex;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 4: Prominente OpenStreetMap View -->
+      <div class="footer-col">
+        <h4>Ligging & Bereikbaarheid</h4>
+        <div class="footer-map-container">
+          <div id="osm-map-view" 
+               data-lat="{{ site.data.clinic.contact.geo.latitude }}" 
+               data-lng="{{ site.data.clinic.contact.geo.longitude }}" 
+               data-zoom="{{ site.data.clinic.contact.geo.zoom }}"
+               data-title="{{ site.data.clinic.name }}">
+          </div>
+        </div>
+        <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
+          <span>🅿️ Ruime parking voor de deur</span>
+          <a href="{{ site.data.clinic.contact.address.maps_url }}" target="_blank" rel="noopener" style="color: var(--color-pastel-lime); font-weight: 600;">
+            Route plannen &rarr;
+          </a>
+        </div>
+        <p style="font-size: 0.78rem; color: rgba(255,255,255,0.7); margin-top: 0.4rem;">
+          Halte De Lijn (lijnen 94 & 96 Aalst-Gent) recht voor de praktijk.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sub-Footer: Collapsible Legal & Veterinary Accreditations -->
+    <div class="footer-legal-bar">
+      <div class="footer-legal-accordion">
+        <details>
+          <summary>Wettelijke vermeldingen & Erkenningsinstanties (Klik om te bekijken)</summary>
+          <div class="footer-legal-content">
+            <div>
+              <strong style="color: var(--color-pastel-lime);">Orde der Dierenartsen</strong><br>
+              Aangesloten bij de Belgische Orde der Dierenartsen.<br>
+              <a href="{{ site.data.clinic.legal.code_plichtenleer_url }}" target="_blank" rel="noopener">Code der plichtenleer (PDF)</a> | 
+              <a href="{{ site.data.clinic.legal.orde_url }}" target="_blank" rel="noopener">Website Orde</a>
+            </div>
+            <div>
+              <strong style="color: var(--color-pastel-lime);">FOD Volksgezondheid</strong><br>
+              {{ site.data.clinic.legal.fod.department }}<br>
+              {{ site.data.clinic.legal.fod.address }}<br>
+              T: {{ site.data.clinic.legal.fod.phone }}
+            </div>
+            <div>
+              <strong style="color: var(--color-pastel-lime);">Vergunning Radiografie (FANC)</strong><br>
+              {{ site.data.clinic.legal.fanc.department }}<br>
+              {{ site.data.clinic.legal.fanc.address }}<br>
+              T: {{ site.data.clinic.legal.fanc.phone }}
+            </div>
+            <div>
+              <strong style="color: var(--color-pastel-lime);">FAGG Geneesmiddelen</strong><br>
+              {{ site.data.clinic.legal.fagg.department }}<br>
+              {{ site.data.clinic.legal.fagg.address }}<br>
+              T: {{ site.data.clinic.legal.fagg.phone }}
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; {{ 'now' | date: '%Y' }} {{ site.data.clinic.name }}. Alle rechten voorbehouden.</span>
+        <div style="display: flex; gap: 1.25rem;">
+          <a href="/privacy-policy/">Privacybeleid</a>
+          <a href="/over-ons/">Ons Team</a>
+          <a href="/diensten/">Diensten</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

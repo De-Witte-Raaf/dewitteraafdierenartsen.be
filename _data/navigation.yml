@@ -1,0 +1,26 @@
+main:
+  - title: "Home"
+    url: "/"
+  - title: "Over Ons"
+    url: "/over-ons/"
+  - title: "Diensten"
+    url: "/diensten/"
+  - title: "Contact"
+    url: "/contact/"
+
+cta:
+  title: "Boek afspraak"
+  url: "https://mypets.eu/dapdewitteraaf"
+  external: true
+
+footer_links:
+  - title: "Home"
+    url: "/"
+  - title: "Over Ons & Team"
+    url: "/over-ons/"
+  - title: "Onze Diensten"
+    url: "/diensten/"
+  - title: "Contact & Ligging"
+    url: "/contact/"
+  - title: "Privacybeleid"
+    url: "/privacy-policy/"

@@ -1,0 +1,32 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} – {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} – {{ site.tagline }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:image" content="{{ '/assets/branding/logos/Dewitteraaf_logo_horizontal.png' | absolute_url }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/branding/logos/dewitteraaf_logo_embleem.svg">
+  <link rel="apple-touch-icon" href="/assets/branding/logos/dewitteraaf_logo_embleem.png">
+
+  <!-- Font Preloads for FCP/LCP Speed -->
+  <link rel="preload" href="/assets/fonts/Coax-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+  {% if page.preload_image %}
+  <link rel="preload" href="{{ page.preload_image }}" as="image" fetchpriority="high">
+  {% endif %}
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css?v={{ site.time | date: '%s' }}">
+</head>

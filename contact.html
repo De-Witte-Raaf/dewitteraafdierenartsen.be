@@ -1,0 +1,86 @@
+---
+layout: default
+title: "Contact & Afspraak Maken"
+subtitle: "Bereik ons voor afspraken, spoedgevallen, voedingsbestellingen en advies."
+badge: "Bereikbaarheid"
+---
+
+<div class="container section-padding" style="padding-top: 2rem;">
+  
+  <!-- Booking Callout Banner (#maak-een-afspraak anchor preserved for SEO / legacy links) -->
+  <div id="maak-een-afspraak" style="background: linear-gradient(135deg, var(--color-pastel-lime) 0%, var(--color-surface-soft) 100%); border-radius: var(--radius-lg); padding: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 3.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border: 1px solid var(--color-border-subtle);">
+    <div>
+      <span class="badge badge-green" style="margin-bottom: 0.5rem;">Snel & Eenvoudig</span>
+      <h2 style="font-size: 1.85rem; margin-bottom: 0.35rem;">Maak een afspraak</h2>
+      <p style="font-size: 1rem; color: var(--color-text-muted); margin-bottom: 0;">
+        Consultaties zijn enkel op afspraak. Boek 24/7 online uw gewenst tijdstip via MyPets, of bel tijdens de balie-uren.
+      </p>
+    </div>
+    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      <a href="{{ site.data.clinic.contact.booking_url }}" target="_blank" rel="noopener" class="btn btn-primary">
+        📅 Online via MyPets.eu &rarr;
+      </a>
+      <a href="tel:{{ site.data.clinic.contact.phone_clean }}" class="btn btn-outline">
+        📞 Bel 09/352.53.54
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-grid">
+    <!-- Left Column: Opening Hours & Emergency Protocol -->
+    <div class="contact-info-card">
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Openingsuren</h2>
+      <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
+        {{ site.data.clinic.opening_hours.consultation_note }}<br>
+        <strong>Afhaling:</strong> {{ site.data.clinic.opening_hours.pickup_note }}
+      </p>
+
+      <table class="hours-table">
+        <tbody>
+          {% for item in site.data.clinic.opening_hours.schedule %}
+          <tr>
+            <td class="hours-day">{{ item.day }}</td>
+            <td class="hours-time {% if item.emergency_only %}hours-emergency{% endif %}">
+              {% if item.emergency_only %}
+              Enkel spoed
+              {% else %}
+              {{ item.morning }} &bull; {{ item.afternoon }}
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <!-- Emergency Section -->
+      <div style="background-color: var(--color-surface-soft); border-radius: var(--radius-md); padding: 1.5rem; margin-top: 2rem; border-left: 4px solid #ea580c;">
+        <h3 style="color: #c2410c; font-size: 1.25rem; margin-bottom: 0.5rem;">{{ site.data.clinic.emergency.title }}</h3>
+        <p style="font-size: 0.92rem; color: var(--color-text-main); margin-bottom: 1rem;">
+          {{ site.data.clinic.emergency.text }}
+        </p>
+        <a href="tel:{{ site.data.clinic.contact.emergency_phone_clean }}" class="btn btn-primary btn-sm" style="background-color: #c2410c; border-color: #c2410c;">
+          🚨 Bel Spoed: 09/352.53.54
+        </a>
+
+        <div style="margin-top: 1.25rem;">
+          <strong style="font-size: 0.85rem; color: var(--color-primary); display: block; margin-bottom: 0.5rem;">Wanneer onmiddellijk bellen?</strong>
+          <ul style="font-size: 0.82rem; color: var(--color-text-muted); padding-left: 1.2rem; display: grid; gap: 0.35rem;">
+            {% for s in site.data.clinic.emergency.symptoms limit: 5 %}
+            <li>{{ s }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Contact Form with Formward & Anti-Spam -->
+    <div class="contact-form-card" id="contacteer-ons">
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Stuur ons een bericht</h2>
+      <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.75rem;">
+        Heeft u een vraag over een behandeling, wenst u voeding of medicatie te reserveren, of wenst u informatie? Vul onderstaand formulier in.
+      </p>
+
+      {% include contact-form.html %}
+    </div>
+  </div>
+</div>

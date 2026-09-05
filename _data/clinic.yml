@@ -1,0 +1,98 @@
+# Clinic Information & Coordinates
+name: "Dierenartsencentrum De Witte Raaf"
+tagline: "Uw dier, onze zorg"
+legal_name: "Dierenartsencentrum De Witte Raaf BV"
+vat_number: "BE 0746.872.086"
+
+contact:
+  phone: "09/352.53.54"
+  phone_clean: "+3293525354"
+  emergency_phone: "09/352.53.54"
+  emergency_phone_clean: "+3293525354"
+  email: "dac@dewitteraafdierenartsen.be"
+  booking_url: "https://mypets.eu/dapdewitteraaf"
+  address:
+    street: "Wijde Wereld 2a"
+    postal_code: "9340"
+    city: "Oordegem"
+    municipality: "Lede"
+    country: "België"
+    maps_url: "https://www.google.com/maps/search/?api=1&query=Wijde+Wereld+2a+9340+Oordegem"
+  geo:
+    latitude: 50.962147
+    longitude: 3.890904
+    zoom: 15
+
+social:
+  instagram: "https://www.instagram.com/dacdewitteraaf/"
+  facebook: "https://www.facebook.com/dacdewitteraaf"
+
+opening_hours:
+  consultation_note: "Consultaties enkel op afspraak tussen 08:40 en 18:00 (vrijdag tot 17:00)."
+  pickup_note: "Afhaling van voeding, verzorgingsproducten en medicatie steeds mogelijk tijdens de openingsuren."
+  schedule:
+    - day: "Maandag"
+      morning: "08:30 – 12:15"
+      afternoon: "14:00 – 19:00"
+      open: true
+    - day: "Dinsdag"
+      morning: "08:30 – 12:15"
+      afternoon: "13:30 – 19:00"
+      open: true
+    - day: "Woensdag"
+      morning: "08:30 – 12:15"
+      afternoon: "13:30 – 19:00"
+      open: true
+    - day: "Donderdag"
+      morning: "08:30 – 12:15"
+      afternoon: "13:30 – 19:00"
+      open: true
+    - day: "Vrijdag"
+      morning: "08:30 – 12:15"
+      afternoon: "13:30 – 19:00"
+      open: true
+    - day: "Zaterdag"
+      morning: "Enkel spoed"
+      afternoon: "Enkel spoed"
+      open: false
+      emergency_only: true
+    - day: "Zondag & Feestdagen"
+      morning: "Enkel spoed"
+      afternoon: "Enkel spoed"
+      open: false
+      emergency_only: true
+
+emergency:
+  badge: "24/7 Eigen Wachtdienst"
+  title: "Wat bij een spoedgeval?"
+  text: "Buiten de openingsuren voorzien wij grotendeels onze eigen wachtdienst voor dringende spoedgevallen. U kunt 24/7 bellen naar 09/352.53.54, waarbij u ofwel rechtstreeks met de dierenarts van dienst wordt verbonden, ofwel duidelijk geïnstrueerd wordt welke dierenarts van wacht paraat staat."
+  symptoms:
+    - "Aanhoudende diarree of braken (> 24 uur)"
+    - "Plotseling verlies van eetlust of lusteloosheid (> 24 uur)"
+    - "Moeite, pijn of persen bij het plassen of ontlasten"
+    - "Acuut trauma (aanrijding, val, diepe snijwonde)"
+    - "Hardnekkige benauwdheid, piepende of abnormale ademhaling"
+    - "Plotselinge verlamming of acute kreupelheid"
+    - "Vermoeden van vergiftiging (chocolade, lelies, rattengif, etc.)"
+
+legal:
+  code_plichtenleer_url: "https://www.ordederdierenartsen.be/sites/default/files/public/Code2015.pdf"
+  orde_url: "https://www.ordederdierenartsen.be/"
+  fod:
+    title: "Erkenning FOD Volksgezondheid"
+    department: "Veiligheid van de Voedselketen en Leefmilieu – Afdeling Dieren, Planten en Voeding"
+    address: "Galileelaan 5 bus 2, 1210 Brussel"
+    phone: "+32 (0)2 524 732 11"
+    email: "apf.vetserv@health.fgov.be"
+  fanc:
+    title: "Vergunning Radiografie (FANC)"
+    department: "Federaal Agentschap voor Nucleaire Controle"
+    address: "Markiesstraat 1 bus 6A, 1000 Brussel"
+    phone: "+32 (0)2 289 21 11"
+    email: "meldpunt@fanc.fgov.be"
+  fagg:
+    title: "FAGG Geneesmiddelen & Gezondheidsproducten"
+    department: "Federaal Agentschap voor Geneesmiddelen en Gezondheidsproducten"
+    address: "Galileelaan 5 bus 3, 1210 Brussel"
+    phone: "+32 (0)2 528 40 00"
+    email: "welcome@fagg.be"

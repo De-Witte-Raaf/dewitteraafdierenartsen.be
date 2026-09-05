@@ -1,0 +1,126 @@
+---
+layout: default
+title: "Over Ons & Ons Team"
+subtitle: "Gedreven dierenartsen en assistentes met een groot hart voor uw dier."
+badge: "Ons Team"
+---
+
+<div class="container section-padding" style="padding-top: 2rem;">
+  <!-- Philosophy & Mission Row -->
+  <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; margin-bottom: 4rem;">
+    <div>
+      <span class="badge badge-lime" style="margin-bottom: 0.75rem;">Onze Missie</span>
+      <h2 style="margin-bottom: 1.25rem;">‘Uw dier, onze zorg’</h2>
+      <p style="font-size: 1.1rem; line-height: 1.75; color: var(--color-text-main); margin-bottom: 1.25rem;">
+        Met ons motto willen we uitstralen dat de zorg van elk dier voor ons even belangrijk is. Wij vinden dat een bezoekje aan de dierenarts een zo fijn mogelijke ervaring moet zijn voor zowel dier als eigenaar.
+      </p>
+      <p style="font-size: 0.98rem; line-height: 1.75; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+        Daarom nemen wij steeds rustig onze tijd en hanteren we uw dier zacht en zonder dwang. We streven ernaar om te allen tijde een luisterend oor te zijn voor uw bezorgdheden en vragen, en leggen behandelingen helder en transparant uit.
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <span class="badge badge-green">🐱 Cat Friendly Gold Certified</span>
+        <span class="badge badge-blue">🏥 Twee Operatiezalen</span>
+        <span class="badge badge-pink">🔬 Eigen Spoedlabo</span>
+      </div>
+    </div>
+
+    <div>
+      <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
+        {% include responsive-image.html 
+           stem="team-group" 
+           alt="Team De Witte Raaf Dierenartsen" 
+           sizes="(max-width: 768px) 100vw, 500px"
+           width="800" 
+           height="600" %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Directory Section -->
+  <div class="text-center" style="margin-bottom: 2.5rem;">
+    <span class="badge badge-green" style="margin-bottom: 0.75rem;">Het Team</span>
+    <h2>Maak kennis met onze mensen</h2>
+    <p style="font-size: 1.05rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">
+      Klik op een medewerker voor hun volledige biografie, accreditaties en huisdieren.
+    </p>
+  </div>
+
+  <!-- Interactive Category Filter -->
+  <div class="team-filter-bar">
+    <button type="button" class="team-filter-btn is-active" data-filter="all">Alle Medewerkers</button>
+    <button type="button" class="team-filter-btn" data-filter="dierenartsen">Dierenartsen</button>
+    <button type="button" class="team-filter-btn" data-filter="assistenten">Dierenartsassistenten</button>
+    <button type="button" class="team-filter-btn" data-filter="studenten">Jobstudenten</button>
+  </div>
+
+  <!-- Team Member Grid -->
+  <div class="team-grid">
+    {% assign members = site.team | sort: 'order' %}
+    {% for m in members %}
+    <article class="team-card" data-category="{{ m.category }}">
+      <div class="team-card-image">
+        {% if m.category == 'dierenartsen' %}
+        <img src="/assets/branding/shapes/dewitteraaf_shape_hond.svg" alt="{{ m.name }}" style="padding: 2.5rem; width: 100%; height: 100%; object-fit: contain;">
+        {% elsif m.category == 'assistenten' %}
+        <img src="/assets/branding/shapes/dewitteraaf_shape_kat.svg" alt="{{ m.name }}" style="padding: 2.5rem; width: 100%; height: 100%; object-fit: contain;">
+        {% else %}
+        <img src="/assets/branding/shapes/dewitteraaf_shape_konijn.svg" alt="{{ m.name }}" style="padding: 2.5rem; width: 100%; height: 100%; object-fit: contain;">
+        {% endif %}
+      </div>
+
+      <div class="team-card-body">
+        <h3 class="team-card-name">{{ m.name }}</h3>
+        <div class="team-card-role">{{ m.role }}</div>
+
+        {% if m.interests and m.interests.size > 0 %}
+        <div class="team-card-tags">
+          {% for interest in m.interests limit: 2 %}
+          <span class="team-card-tag">{{ interest }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div style="margin-top: auto; padding-top: 1rem;">
+          <a href="{{ m.url }}" class="btn btn-outline btn-sm" style="width: 100%;">
+            Meer over {{ m.name | split: ' ' | last }} &rarr;
+          </a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Internship / Stage Box -->
+  <div style="background: var(--color-surface-soft); border-radius: var(--radius-lg); padding: 2.5rem; margin-top: 4rem; text-align: center; border: 1px solid var(--color-border-subtle);">
+    <h3 style="margin-bottom: 0.75rem;">Een toekomstige collega?</h3>
+    <p style="font-size: 1.05rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto 1.5rem;">
+      Zoek je een stageplaats als dierenarts of dierenartsassistent(e)? Wij investeren graag in gedreven talent en bieden een inspirerende leeromgeving.
+    </p>
+    <a href="/contact/" class="btn btn-primary">
+      Neem contact op voor een stage
+    </a>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const filterBtns = document.querySelectorAll('.team-filter-btn');
+  const cards = document.querySelectorAll('.team-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>

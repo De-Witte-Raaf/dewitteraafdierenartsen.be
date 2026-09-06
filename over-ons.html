@@ -83,7 +83,7 @@ permalink: /over-ons/
 
         <div style="margin-top: auto; padding-top: 1rem;">
           <a href="{{ m.url | relative_url }}" class="btn btn-outline btn-sm" style="width: 100%;">
-            Meer over {{ m.name | split: ' ' | last }} &rarr;
+            Meer over {{ m.name | remove: 'Dr.' | strip | split: ' ' | first }} &rarr;
           </a>
         </div>
       </div>

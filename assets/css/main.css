@@ -186,6 +186,12 @@ p:last-child {
   padding-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
+/* Clears the footer emblem (which hangs above the footer) from covering
+   the last content on non-home pages. */
+.clear-footer-emblem {
+  padding-bottom: clamp(11rem, 15vw, 14rem);
+}
+
 .text-center { text-align: center; }
 
 /* --------------------------------------------------------------------------
@@ -691,6 +697,7 @@ p:last-child {
    -------------------------------------------------------------------------- */
 .reviews-section {
   background: linear-gradient(180deg, var(--color-surface-warm) 0%, var(--color-surface-soft) 100%);
+  padding-bottom: clamp(12rem, 16vw, 18rem);
 }
 
 .reviews-grid {
@@ -972,10 +979,25 @@ p:last-child {
 .site-footer {
   background-color: var(--color-primary);
   color: var(--color-white);
-  padding-top: clamp(3.5rem, 6vw, 5rem);
+  padding-top: clamp(4.5rem, 7vw, 6rem);
   padding-bottom: 2rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.footer-emblem {
+  position: absolute;
+  top: 0;
+  left: clamp(1.25rem, 4vw, 3rem);
+  z-index: 5;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.footer-emblem-img {
+  display: block;
+  width: auto;
+  height: clamp(120px, 18vw, 160px);
 }
 
 .footer-main-grid {

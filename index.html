@@ -201,7 +201,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
 </section>
 
 <!-- Call to Action Section -->
-<section class="section-padding" style="background-color: var(--color-primary); color: var(--color-white); position: relative; overflow: hidden;">
+<section class="section-padding" style="background-color: var(--color-primary); color: var(--color-white); position: relative; overflow: visible;">
   <div class="container text-center" style="position: relative; z-index: 2; max-width: 780px;">
     <h2 style="color: var(--color-pastel-lime); margin-bottom: 1rem;">Klaar voor een bezoek aan De Witte Raaf?</h2>
     <p style="font-size: 1.15rem; line-height: 1.75; color: rgba(255,255,255,0.9); margin-bottom: 2rem;">
@@ -215,5 +215,8 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
         📍 Praktijkinfo & Contact
       </a>
     </div>
+  </div>
+  <div class="footer-emblem" aria-hidden="true">
+    <img src="{{ '/assets/branding/logos/dewitteraaf_logo_embleem.svg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="" class="footer-emblem-img" width="74" height="108">
   </div>
 </section>

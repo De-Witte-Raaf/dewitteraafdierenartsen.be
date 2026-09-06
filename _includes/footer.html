@@ -1,4 +1,9 @@
 <footer class="site-footer">
+  {%- unless page.url == '/' -%}
+  <div class="footer-emblem" aria-hidden="true">
+    <img src="{{ '/assets/branding/logos/dewitteraaf_logo_embleem.svg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="" class="footer-emblem-img" width="74" height="108">
+  </div>
+  {%- endunless -%}
   <div class="container">
     <div class="footer-main-grid">
       <!-- Column 1: Identity & Vision -->

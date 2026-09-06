@@ -4,7 +4,7 @@
       <!-- Column 1: Identity & Vision -->
       <div class="footer-col">
         <a href="{{ '/' | relative_url }}" aria-label="Home">
-          <img src="{{ '/assets/branding/logos/dewitteraaf_woordmerk_horizontaal_wit.svg' | relative_url }}" alt="De Witte Raaf Dierenartsen" class="footer-logo" width="220" height="38">
+          <img src="{{ '/assets/branding/logos/dewitteraaf_woordmerk_horizontaal_wit.svg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="De Witte Raaf Dierenartsen" class="footer-logo" width="220" height="38">
         </a>
         <p style="font-size: 1.05rem; font-weight: 500; color: var(--color-pastel-lime); margin-bottom: 0.75rem;">
           {{ site.data.clinic.tagline }}
@@ -20,33 +20,7 @@
         </p>
       </div>
 
-      <!-- Column 2: Openingsuren & Spoed -->
-      <div class="footer-col">
-        <h4>Openingsuren</h4>
-        <p style="font-size: 0.82rem; color: var(--color-pastel-lime); margin-bottom: 0.75rem;">
-          {{ site.data.clinic.opening_hours.consultation_note }}
-        </p>
-        <ul style="list-style: none; font-size: 0.85rem; display: grid; gap: 0.35rem; margin-bottom: 1.25rem;">
-          {% for item in site.data.clinic.opening_hours.schedule %}
-          <li style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.25rem;">
-            <span>{{ item.day }}:</span>
-            <span style="font-weight: 600; {% if item.emergency_only %}color: var(--color-pastel-pink);{% endif %}">
-              {% if item.emergency_only %}Enkel spoed{% else %}{{ item.morning }} & {{ item.afternoon }}{% endif %}
-            </span>
-          </li>
-          {% endfor %}
-        </ul>
-
-        <div class="footer-emergency-box">
-          <h5>🚨 24/7 Spoedgeval?</h5>
-          <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Bel onze eigen wachtdienst:</p>
-          <a href="tel:{{ site.data.clinic.contact.emergency_phone_clean }}" class="btn btn-secondary btn-sm" style="width: 100%;">
-            📞 {{ site.data.clinic.contact.emergency_phone }}
-          </a>
-        </div>
-      </div>
-
-      <!-- Column 3: Contact & Afspraak -->
+      <!-- Column 2: Contact & Afspraak -->
       <div class="footer-col">
         <h4>Contact</h4>
         <p>
@@ -75,7 +49,7 @@
         </div>
       </div>
 
-      <!-- Column 4: Prominente OpenStreetMap View -->
+      <!-- Column 3: Prominente OpenStreetMap View -->
       <div class="footer-col">
         <h4>Ligging & Bereikbaarheid</h4>
         <div class="footer-map-container">

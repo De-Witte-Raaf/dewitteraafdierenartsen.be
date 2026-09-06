@@ -62,7 +62,6 @@ permalink: /diensten/
         <header class="service-pane-header">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
             <span class="badge badge-{{ s.accent_color | default: 'green' }}">{{ s.badge }}</span>
-            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted);">Onderdeel 0{{ s.order }} van {{ services.size }}</span>
           </div>
           <h2 style="font-size: clamp(1.8rem, 3vw, 2.35rem); margin-bottom: 0.25rem;">{{ s.title }}</h2>
           <p class="service-pane-subtitle">{{ s.subtitle }}</p>

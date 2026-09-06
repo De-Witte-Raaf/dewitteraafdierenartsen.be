@@ -43,9 +43,6 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
     </div>
 
     <div class="hero-visual">
-      <!-- Decorative Brand Shape -->
-      <img src="{{ '/assets/branding/shapes/dewitteraaf_shape_maan.svg' | relative_url }}" alt="" class="hero-shape-accent" aria-hidden="true">
-
       <div class="hero-image-card">
         {% include responsive-image.html 
            stem="clinic-exterior" 
@@ -54,15 +51,6 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
            sizes="(max-width: 768px) 100vw, 560px"
            width="800" 
            height="600" %}
-      </div>
-
-      <!-- Award Badge -->
-      <div class="hero-cat-award-badge">
-        <img src="{{ '/assets/images/generated/cat-friendly-clinic-400.png' | relative_url }}" alt="Cat Friendly Clinic Gold Certification">
-        <div class="hero-cat-award-text">
-          Gold Level Certified Clinic<br>
-          <span style="font-weight: 400; color: var(--color-text-muted); font-size: 0.75rem;">International Society of Feline Medicine</span>
-        </div>
       </div>
     </div>
   </div>
@@ -152,7 +140,6 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
       <div>
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
           <span class="badge badge-{{ s.accent_color | default: 'green' }}">{{ s.badge }}</span>
-          <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted);">#0{{ s.order }}</span>
         </div>
         <h3 style="margin-bottom: 0.5rem; font-size: 1.35rem;">{{ s.title }}</h3>
         <p style="font-size: 0.88rem; color: var(--color-primary-light); font-weight: 500; margin-bottom: 0.85rem;">{{ s.subtitle }}</p>

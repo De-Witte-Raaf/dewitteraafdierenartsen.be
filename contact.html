@@ -45,7 +45,8 @@ permalink: /contact/
               {% if item.emergency_only %}
               Enkel spoed
               {% else %}
-              {{ item.morning }} &bull; {{ item.afternoon }}
+              <span class="hours-morning">{{ item.morning }}</span>
+              <span class="hours-afternoon">{{ item.afternoon }}</span>
               {% endif %}
             </td>
           </tr>

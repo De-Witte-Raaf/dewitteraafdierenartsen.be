@@ -926,6 +926,14 @@ p:last-child {
 .hours-time {
   text-align: right;
   color: var(--color-text-main);
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.hours-afternoon::before {
+  content: "•";
+  margin-right: 0.75rem;
 }
 .hours-emergency {
   color: #c2410c;
@@ -1207,6 +1215,14 @@ p:last-child {
   }
   .badge-row {
     justify-content: center;
+  }
+  .hours-time {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+  }
+  .hours-afternoon::before {
+    content: none;
   }
 }
 

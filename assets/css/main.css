@@ -278,6 +278,12 @@ p:last-child {
 .badge-lime { background-color: var(--color-pastel-lime); color: var(--color-primary); }
 .badge-green { background-color: rgba(1, 79, 43, 0.12); color: var(--color-primary); }
 
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 /* --------------------------------------------------------------------------
    Header & Emergency Top Bar
    -------------------------------------------------------------------------- */
@@ -1198,6 +1204,9 @@ p:last-child {
   .about-split,
   .index-about-split {
     grid-template-columns: 1fr;
+  }
+  .badge-row {
+    justify-content: center;
   }
 }
 

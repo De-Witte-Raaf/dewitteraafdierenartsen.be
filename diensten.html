@@ -3,6 +3,7 @@ layout: default
 title: "Onze Diensten & Disciplines"
 subtitle: "Gespecialiseerde medische zorg, preventie en faciliteiten afgestemd op het welzijn van uw dier."
 badge: "Zorg & Behandelingen"
+permalink: /diensten/
 ---
 
 <div class="container section-padding" style="padding-top: 2rem;">
@@ -97,7 +98,7 @@ badge: "Zorg & Behandelingen"
               📞 Bel 09/352.53.54 (24/7)
             </a>
             {% else %}
-            <a href="{{ s.cta_url | default: site.data.clinic.contact.booking_url }}" 
+            <a href="{{ s.cta_url | default: site.data.clinic.contact.booking_url | relative_url }}" 
                {% if s.cta_url contains 'mypets' %}target="_blank" rel="noopener"{% endif %} 
                class="btn btn-primary">
               {{ s.cta_text | default: 'Boek online afspraak' }} &rarr;

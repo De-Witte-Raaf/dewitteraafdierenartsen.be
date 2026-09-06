@@ -492,6 +492,27 @@ p:last-child {
 }
 
 /* --------------------------------------------------------------------------
+   Two-Column Split (Home About + Over Ons Philosophy)
+   -------------------------------------------------------------------------- */
+.about-split,
+.index-about-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.index-about-split {
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.about-split > *,
+.index-about-split > * {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
    Quick Highlights Bar
    -------------------------------------------------------------------------- */
 .highlights-bar {
@@ -1172,6 +1193,11 @@ p:last-child {
   .footer-main-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .about-split,
+  .index-about-split {
+    grid-template-columns: 1fr;
   }
 }
 

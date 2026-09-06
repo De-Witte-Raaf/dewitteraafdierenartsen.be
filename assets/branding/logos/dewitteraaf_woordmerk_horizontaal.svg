@@ -70,7 +70,6 @@
      transform="translate(-69.637328,-132.0315)">
     <g
        id="g687"
-       clip-path="url(#clipPath1504)"
        transform="matrix(0.35277777,0,0,-0.35277777,-137.64607,219.85447)"
        style="fill:#014f2b;fill-opacity:1">
       <g
@@ -80,8 +79,6 @@
          id="g781"
          style="fill:#014f2b;fill-opacity:1">
         <g
-           clip-path="url(#clipPath693)"
-           opacity="0.479996"
            id="g779"
            style="fill:#014f2b;fill-opacity:1">
           <g
@@ -287,8 +284,6 @@
          id="g1093"
          style="fill:#014f2b;fill-opacity:1">
         <g
-           clip-path="url(#clipPath1085)"
-           opacity="0.410004"
            id="g1091"
            style="fill:#014f2b;fill-opacity:1">
           <text

@@ -3,7 +3,7 @@ layout: default
 ---
 <section class="section-padding" style="background-color: var(--color-surface-soft); border-bottom: 1px solid var(--color-border-subtle);">
   <div class="container">
-    <a href="/over-ons/" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--color-primary); margin-bottom: 1.5rem;">
+    <a href="{{ '/over-ons/' | relative_url }}" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--color-primary); margin-bottom: 1.5rem;">
       &larr; Terug naar Ons Team
     </a>
 
@@ -11,7 +11,7 @@ layout: default
       <!-- Photo / Avatar -->
       <div>
         <div style="border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 1/1; background-color: var(--color-surface-warm); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border-subtle); margin-bottom: 1.5rem;">
-          <img src="{{ page.photo | default: '/assets/branding/shapes/dewitteraaf_shape_hond.svg' }}" alt="{{ page.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="{{ page.photo | default: '/assets/branding/shapes/dewitteraaf_shape_hond.svg' | relative_url }}" alt="{{ page.name }}" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
 
         <div style="background-color: var(--color-surface-warm); padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-primary);">

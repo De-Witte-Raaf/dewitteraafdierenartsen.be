@@ -3,8 +3,8 @@
     <div class="footer-main-grid">
       <!-- Column 1: Identity & Vision -->
       <div class="footer-col">
-        <a href="/" aria-label="Home">
-          <img src="/assets/branding/logos/dewitteraaf_woordmerk_horizontaal_wit.svg" alt="De Witte Raaf Dierenartsen" class="footer-logo" width="220" height="38">
+        <a href="{{ '/' | relative_url }}" aria-label="Home">
+          <img src="{{ '/assets/branding/logos/dewitteraaf_woordmerk_horizontaal_wit.svg' | relative_url }}" alt="De Witte Raaf Dierenartsen" class="footer-logo" width="220" height="38">
         </a>
         <p style="font-size: 1.05rem; font-weight: 500; color: var(--color-pastel-lime); margin-bottom: 0.75rem;">
           {{ site.data.clinic.tagline }}
@@ -135,10 +135,10 @@
       <div class="footer-bottom">
         <span>&copy; {{ 'now' | date: '%Y' }} {{ site.data.clinic.name }}. Alle rechten voorbehouden.</span>
         <div style="display: flex; gap: 1.25rem;">
-          <a href="/privacy-policy/">Privacybeleid</a>
-          <a href="/over-ons/">Ons Team</a>
-          <a href="/diensten/">Diensten</a>
-          <a href="/contact/">Contact</a>
+          <a href="{{ '/privacy-policy/' | relative_url }}">Privacybeleid</a>
+          <a href="{{ '/over-ons/' | relative_url }}">Ons Team</a>
+          <a href="{{ '/diensten/' | relative_url }}">Diensten</a>
+          <a href="{{ '/contact/' | relative_url }}">Contact</a>
         </div>
       </div>
     </div>

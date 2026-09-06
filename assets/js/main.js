@@ -1,3 +1,5 @@
+---
+---
 /**
  * De Witte Raaf - Interactive Site Scripts
  * High performance, zero dependencies, modern ES6+
@@ -260,7 +262,7 @@ function renderMap(lat, lng, zoom, title, container) {
 
   // Custom marker icon using clinic emblem
   const customIcon = L.icon({
-    iconUrl: '/assets/branding/logos/dewitteraaf_logo_embleem.svg',
+    iconUrl: '{{ site.baseurl }}/assets/branding/logos/dewitteraaf_logo_embleem.svg',
     iconSize: [36, 36],
     iconAnchor: [18, 36],
     popupAnchor: [0, -36]

@@ -102,7 +102,7 @@ badge: "Zorg & Behandelingen"
                class="btn btn-primary">
               {{ s.cta_text | default: 'Boek online afspraak' }} &rarr;
             </a>
-            <a href="/contact/" class="btn btn-outline">
+            <a href="{{ '/contact/' | relative_url }}" class="btn btn-outline">
               Vraag stellen
             </a>
             {% endif %}

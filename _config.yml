@@ -2,8 +2,8 @@
 title: "Dierenartsencentrum De Witte Raaf"
 tagline: "Uw dier, onze zorg"
 description: "Dierenartsencentrum De Witte Raaf in Oordegem (Lede). Persoonlijke en kwalitatieve diergeneeskundige zorg voor gezelschapsdieren, inclusief 24/7 spoedzorg en Gold Certified Cat Friendly Clinic."
-url: "https://dewitteraafdierenartsen.be"
-baseurl: ""
+url: "https://de-witte-raaf.github.io"
+baseurl: "/dewitteraafdierenartsen.be"
 lang: "nl-BE"
 locale: "nl_BE"
 

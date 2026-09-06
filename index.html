@@ -21,7 +21,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
           Maak een afspraak
         </a>
-        <a href="/diensten/" class="btn btn-secondary">
+        <a href="{{ '/diensten/' | relative_url }}" class="btn btn-secondary">
           Bekijk onze diensten &rarr;
         </a>
       </div>
@@ -44,7 +44,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
 
     <div class="hero-visual">
       <!-- Decorative Brand Shape -->
-      <img src="/assets/branding/shapes/dewitteraaf_shape_maan.svg" alt="" class="hero-shape-accent" aria-hidden="true">
+      <img src="{{ '/assets/branding/shapes/dewitteraaf_shape_maan.svg' | relative_url }}" alt="" class="hero-shape-accent" aria-hidden="true">
 
       <div class="hero-image-card">
         {% include responsive-image.html 
@@ -58,7 +58,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
 
       <!-- Award Badge -->
       <div class="hero-cat-award-badge">
-        <img src="/assets/images/source/cat-friendly-clinic.png" alt="Cat Friendly Clinic Gold Certification">
+        <img src="{{ '/assets/images/generated/cat-friendly-clinic-400.png' | relative_url }}" alt="Cat Friendly Clinic Gold Certification">
         <div class="hero-cat-award-text">
           Gold Level Certified Clinic<br>
           <span style="font-weight: 400; color: var(--color-text-muted); font-size: 0.75rem;">International Society of Feline Medicine</span>
@@ -117,7 +117,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
       <p style="font-size: 0.98rem; line-height: 1.75; color: var(--color-text-muted); margin-bottom: 2rem;">
         Ons team van ervaren dierenartsen en gediplomeerde assistentes overlegt dagelijks om elk dier de meest geschikte, evidence-based medische zorg te bieden.
       </p>
-      <a href="/over-ons/" class="btn btn-outline">
+      <a href="{{ '/over-ons/' | relative_url }}" class="btn btn-outline">
         Ontmoet ons hele team &rarr;
       </a>
     </div>
@@ -159,7 +159,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
         <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.25rem;">{{ s.summary }}</p>
       </div>
 
-      <a href="/diensten/#{{ s.slug }}" class="btn btn-outline btn-sm" style="align-self: flex-start;">
+      <a href="{{ '/diensten/' | relative_url }}#{{ s.slug }}" class="btn btn-outline btn-sm" style="align-self: flex-start;">
         Lees meer details &rarr;
       </a>
     </div>
@@ -167,7 +167,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
   </div>
 
   <div class="container text-center" style="margin-top: 3rem;">
-    <a href="/diensten/" class="btn btn-primary">
+    <a href="{{ '/diensten/' | relative_url }}" class="btn btn-primary">
       Bekijk alle diensten in detail
     </a>
   </div>
@@ -224,7 +224,7 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
       <a href="{{ site.data.clinic.contact.booking_url }}" target="_blank" rel="noopener" class="btn btn-secondary">
         📅 Online afspraak boeken
       </a>
-      <a href="/contact/" class="btn btn-outline" style="border-color: var(--color-white); color: var(--color-white);">
+      <a href="{{ '/contact/' | relative_url }}" class="btn btn-outline" style="border-color: var(--color-white); color: var(--color-white);">
         📍 Praktijkinfo & Contact
       </a>
     </div>

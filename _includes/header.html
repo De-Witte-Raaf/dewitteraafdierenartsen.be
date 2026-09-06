@@ -9,16 +9,16 @@
 <!-- Main Sticky Header -->
 <header class="site-header" id="site-header">
   <div class="container header-main">
-    <a href="/" class="brand-link" aria-label="De Witte Raaf Home">
-      <img src="/assets/branding/logos/dewitteraaf_logo_embleem.svg" alt="" class="brand-emblem" width="44" height="44">
-      <img src="/assets/branding/logos/dewitteraaf_woordmerk_horizontaal.svg" alt="De Witte Raaf Dierenartsen" class="brand-wordmark" width="220" height="38">
+    <a href="{{ '/' | relative_url }}" class="brand-link" aria-label="De Witte Raaf Home">
+      <img src="{{ '/assets/branding/logos/dewitteraaf_logo_embleem.svg' | relative_url }}" alt="" class="brand-emblem" width="44" height="44">
+      <img src="{{ '/assets/branding/logos/dewitteraaf_woordmerk_horizontaal.svg' | relative_url }}" alt="De Witte Raaf Dierenartsen" class="brand-wordmark" width="220" height="38">
     </a>
 
     <nav class="site-nav" id="site-nav" aria-label="Hoofdnavigatie">
       <ul class="nav-list">
         {% for item in site.data.navigation.main %}
         <li>
-          <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+          <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
             {{ item.title }}
           </a>
         </li>

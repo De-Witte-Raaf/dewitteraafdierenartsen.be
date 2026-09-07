@@ -1134,6 +1134,30 @@ p:last-child {
 }
 
 /* --------------------------------------------------------------------------
+   Privacy Policy Prose
+   -------------------------------------------------------------------------- */
+.privacy-prose h3 {
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
+}
+.privacy-prose h3:first-of-type {
+  margin-top: 0;
+}
+.privacy-prose ul {
+  padding-left: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+.privacy-prose li {
+  margin-bottom: 0.5rem;
+}
+.privacy-prose li:last-child {
+  margin-bottom: 0;
+}
+.privacy-prose a {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
    Responsive Media Queries
    -------------------------------------------------------------------------- */
 @media (max-width: 1180px) {

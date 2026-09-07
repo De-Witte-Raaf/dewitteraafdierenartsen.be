@@ -139,7 +139,11 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
     <div style="background: var(--color-white); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border-subtle); display: flex; flex-direction: column; justify-content: space-between;">
       <div>
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          {% if s.slug == 'cat-friendly-angstvrij' %}
+          <img src="{{ '/assets/images/generated/cat-friendly-clinic-400.png' | relative_url }}" alt="Gold Certified Cat Friendly Clinic" class="cat-friendly-badge" style="max-width: 120px;">
+          {% else %}
           <span class="badge badge-{{ s.accent_color | default: 'green' }}">{{ s.badge }}</span>
+          {% endif %}
         </div>
         <h3 style="margin-bottom: 0.5rem; font-size: 1.35rem;">{{ s.title }}</h3>
         <p style="font-size: 0.88rem; color: var(--color-primary-light); font-weight: 500; margin-bottom: 0.85rem;">{{ s.subtitle }}</p>

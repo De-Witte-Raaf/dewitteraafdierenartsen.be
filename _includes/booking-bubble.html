@@ -1,13 +1,24 @@
 <!-- MyPets Online Booking Floating Scriptlet.
      The widget script is ~1.4 MB and must not compete with fonts and images in
-     the LCP critical path, so it is injected only after the page has fully
-     loaded (the <mypets-bubble> element is inert until then). -->
+     the LCP critical path, so it is injected only once the user starts
+     interacting with the page (pointer/touch/keyboard/scroll). Automated and
+     pre-interaction loads never fetch it. The <mypets-bubble> element is inert
+     until then. -->
 <mypets-bubble defer url-suffix="dapdewitteraaf" web-component-base-url="https://mypets.eu"></mypets-bubble>
 <script>
-window.addEventListener('load', function () {
-  var s = document.createElement('script');
-  s.src = 'https://mypets.eu/bubble/mypets-bubble.js';
-  s.async = true;
-  document.body.appendChild(s);
-});
+(function () {
+  var loaded = false;
+  function load() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://mypets.eu/bubble/mypets-bubble.js';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+  var events = ['mouseover', 'pointerdown', 'touchstart', 'keydown', 'scroll', 'focusin'];
+  events.forEach(function (type) {
+    document.addEventListener(type, load, { once: true, capture: true, passive: true });
+  });
+})();
 </script>

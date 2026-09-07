@@ -70,7 +70,7 @@
   --color-surface-warm: #FAFAF7;
   --color-surface-soft: #F2F5EE;
   --color-surface-card: #FFFFFF;
-  --color-text-main: #14281E;
+  --color-text-main: var(--color-primary);
   --color-text-muted: #4A6357;
   --color-border-subtle: rgba(1, 79, 43, 0.12);
   --color-border-medium: rgba(1, 79, 43, 0.24);
@@ -143,7 +143,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-title);
   color: var(--color-primary);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }

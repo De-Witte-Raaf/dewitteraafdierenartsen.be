@@ -6,11 +6,6 @@
 {% assign default_h = include.height | default: "600" %}
 
 <picture>
-  <source type="image/avif" 
-          srcset="{{ '/assets/images/generated/' | relative_url }}{{ stem }}-400.avif 400w, 
-                  {{ '/assets/images/generated/' | relative_url }}{{ stem }}-800.avif 800w, 
-                  {{ '/assets/images/generated/' | relative_url }}{{ stem }}-1200.avif 1200w" 
-          sizes="{{ sizes_attr }}">
   <source type="image/webp" 
           srcset="{{ '/assets/images/generated/' | relative_url }}{{ stem }}-400.webp 400w, 
                   {{ '/assets/images/generated/' | relative_url }}{{ stem }}-800.webp 800w, 

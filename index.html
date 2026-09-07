@@ -142,7 +142,6 @@ preload_image: "/assets/images/generated/clinic-exterior-800.webp"
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
           {% if s.slug == 'cat-friendly-angstvrij' %}
           <picture>
-            <source type="image/avif" srcset="{{ '/assets/images/generated/cat-friendly-clinic-200.avif' | relative_url }} 200w, {{ '/assets/images/generated/cat-friendly-clinic-400.avif' | relative_url }} 400w" sizes="120px">
             <source type="image/webp" srcset="{{ '/assets/images/generated/cat-friendly-clinic-200.webp' | relative_url }} 200w, {{ '/assets/images/generated/cat-friendly-clinic-400.webp' | relative_url }} 400w" sizes="120px">
             <img src="{{ '/assets/images/generated/cat-friendly-clinic-200.png' | relative_url }}" srcset="{{ '/assets/images/generated/cat-friendly-clinic-200.png' | relative_url }} 200w, {{ '/assets/images/generated/cat-friendly-clinic-400.png' | relative_url }} 400w" sizes="120px" alt="Gold Certified Cat Friendly Clinic" class="cat-friendly-badge" width="200" height="141" loading="lazy" decoding="async" style="max-width: 120px;">
           </picture>

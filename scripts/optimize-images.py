@@ -32,7 +32,7 @@ def ensure_dir(path):
 def has_magick():
     return shutil.which("magick") is not None
 
-def optimize_single_image(src_path, output_dir, use_magick=True):
+def optimize_single_image(src_path, output_dir):
     stem = src_path.stem
     ext = src_path.suffix.lower()
     
@@ -82,23 +82,14 @@ def optimize_single_image(src_path, output_dir, use_magick=True):
                 resized = im.resize((w, h), Image.Resampling.LANCZOS)
                 resized.save(webp_out, "WEBP", quality=80, method=6)
 
-        # 3. AVIF (if magick available)
-        avif_out = output_dir / f"{variant_stem}.avif"
-        if use_magick and not avif_out.exists():
-            try:
-                subprocess.run(
-                    ["magick", str(fallback_out), "-quality", "75", str(avif_out)],
-                    check=True,
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL
-                )
-            except Exception:
-                pass
+        # 3. (legacy) Both JPEG/PNG and WebP variants are generated; AVIF is
+        #    intentionally skipped: CI's ImageMagick cannot encode AVIF and
+        #    local encoders produce files larger than WebP for these photos.
 
         results["variants"][w] = {
             "fallback": str(fallback_out.relative_to(".")),
             "webp": str(webp_out.relative_to(".")),
-            "avif": str(avif_out.relative_to(".")) if avif_out.exists() else None,
+            "avif": None,
             "width": w,
             "height": h
         }
@@ -128,8 +119,7 @@ def main():
             cache = {}
 
     manifest = {}
-    use_mag = has_magick()
-    print(f"Starting image optimization (ImageMagick: {use_mag})...")
+    print(f"Starting image optimization (ImageMagick: {has_magick()})...")
 
     updated_count = 0
     for file in sorted(SOURCE_DIR.iterdir()):
@@ -142,7 +132,7 @@ def main():
             continue
 
         print(f"Processing {file.name} ({file.stat().st_size // 1024} KB)...")
-        res = optimize_single_image(file, OUTPUT_DIR, use_magick=use_mag)
+        res = optimize_single_image(file, OUTPUT_DIR)
         if res:
             manifest[file.stem] = res
             cache[file.name] = {"hash": file_hash, "data": res}

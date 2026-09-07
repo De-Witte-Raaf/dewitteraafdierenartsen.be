@@ -839,7 +839,7 @@ p:last-child {
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   gap: 3.5rem;
   margin-top: 2rem;
 }
@@ -851,20 +851,27 @@ p:last-child {
   padding: 2.5rem;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border-subtle);
+  min-width: 0;
 }
 
 .hours-table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 1.25rem;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
 .hours-table tr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  column-gap: 0.75rem;
+  row-gap: 0.25rem;
   border-bottom: 1px solid var(--color-border-subtle);
 }
 .hours-table td {
   padding: 0.65rem 0;
+  flex: 0 0 auto;
 }
 .hours-day {
   font-weight: 600;
@@ -874,14 +881,17 @@ p:last-child {
   text-align: right;
   color: var(--color-text-main);
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 0.35rem 0.5rem;
+  min-width: 0;
 }
-.hours-afternoon::before {
-  content: "•";
-  margin-right: 0.75rem;
+.hours-morning,
+.hours-afternoon {
+  white-space: nowrap;
 }
+
 .hours-emergency {
   color: #c2410c;
   font-weight: 600;
@@ -1216,7 +1226,7 @@ p:last-child {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
   .footer-main-grid {
@@ -1267,14 +1277,6 @@ p:last-child {
   }
   .badge-row {
     justify-content: center;
-  }
-  .hours-time {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.15rem;
-  }
-  .hours-afternoon::before {
-    content: none;
   }
 }
 

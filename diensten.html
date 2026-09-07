@@ -53,7 +53,7 @@ permalink: /diensten/
     <!-- Right Expanding Content Stage -->
     <div class="service-detail-stage" id="services-stage">
       {% for s in services %}
-      <article class="service-pane {% if forloop.first %}is-active{% endif %}" 
+      <div class="service-pane {% if forloop.first %}is-active{% endif %}" 
                id="pane-{{ s.slug }}" 
                data-service-slug="{{ s.slug }}"
                role="tabpanel"
@@ -110,7 +110,7 @@ permalink: /diensten/
           </div>
         </div>
 
-      </article>
+      </div>
       {% endfor %}
     </div>
   </div>

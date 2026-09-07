@@ -1033,7 +1033,7 @@ p:last-child {
 
 .footer-main-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr 1.3fr;
+  grid-template-columns: 1.1fr 1fr 1.4fr;
   gap: 2.5rem;
   margin-bottom: 3.5rem;
 }
@@ -1076,6 +1076,22 @@ p:last-child {
 }
 .footer-col .btn-secondary:hover {
   color: var(--color-primary-dark);
+}
+.footer-booking-btn {
+  display: block;
+  width: 100%;
+}
+.footer-social-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.footer-map-meta {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
 }
 
 .footer-map-container {
@@ -1121,6 +1137,11 @@ p:last-child {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+}
+.footer-legal-content a {
+  color: var(--color-pastel-lime);
+  font-weight: 500;
+  text-decoration: underline;
 }
 
 .footer-directory {
@@ -1250,7 +1271,13 @@ p:last-child {
   }
   .footer-main-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
+  }
+  .footer-col {
+    text-align: center;
+  }
+  .footer-col h4 {
+    text-align: center;
   }
   .footer-logo-link,
   .cat-friendly-badge {
@@ -1261,6 +1288,22 @@ p:last-child {
     margin-left: auto;
     margin-right: auto;
   }
+  .footer-booking-btn {
+    width: auto;
+    margin: 0 auto;
+  }
+  .footer-social-row {
+    justify-content: center;
+  }
+  .footer-map-container {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .footer-map-meta {
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    text-align: center;
   }
   .footer-directory {
     padding-left: 1rem;

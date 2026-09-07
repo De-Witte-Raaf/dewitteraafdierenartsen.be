@@ -16,7 +16,7 @@ from PIL import Image
 
 SOURCE_DIR = Path("assets/images/source")
 OUTPUT_DIR = Path("assets/images/generated")
-TARGET_WIDTHS = [400, 800, 1200, 1600]
+TARGET_WIDTHS = [200, 400, 800, 1200, 1600]
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 def get_file_hash(filepath):

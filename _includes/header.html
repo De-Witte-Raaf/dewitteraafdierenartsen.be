@@ -11,12 +11,16 @@
   <header class="site-header" id="site-header">
     <div class="container header-main">
       <a href="{{ '/' | relative_url }}" class="brand-link" aria-label="De Witte Raaf Home">
-        <img src="{{ '/assets/branding/logos/dewitteraaf_logo_tagline.svg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="De Witte Raaf Dierenartsen – Uw dier, onze zorg" class="brand-logo">
+        <img src="{{ '/assets/branding/logos/dewitteraaf_logo_tagline.svg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="De Witte Raaf Dierenartsen – Uw dier, onze zorg" class="brand-logo" width="92" height="60">
       </a>
 
       <nav class="site-nav" id="site-nav" aria-label="Hoofdnavigatie">
         <div class="header-award-badge">
-          <img src="{{ '/assets/images/generated/cat-friendly-clinic-400.png' | relative_url }}" alt="Cat Friendly Clinic Gold Certification">
+          <picture>
+            <source type="image/avif" srcset="{{ '/assets/images/generated/cat-friendly-clinic-200.avif' | relative_url }} 200w, {{ '/assets/images/generated/cat-friendly-clinic-400.avif' | relative_url }} 400w" sizes="54px">
+            <source type="image/webp" srcset="{{ '/assets/images/generated/cat-friendly-clinic-200.webp' | relative_url }} 200w, {{ '/assets/images/generated/cat-friendly-clinic-400.webp' | relative_url }} 400w" sizes="54px">
+            <img src="{{ '/assets/images/generated/cat-friendly-clinic-200.png' | relative_url }}" srcset="{{ '/assets/images/generated/cat-friendly-clinic-200.png' | relative_url }} 200w, {{ '/assets/images/generated/cat-friendly-clinic-400.png' | relative_url }} 400w" sizes="54px" alt="Cat Friendly Clinic Gold Certification" width="54" height="38">
+          </picture>
           <span class="header-award-text">
             Gold Level Certified Clinic
             <span>International Society of Feline Medicine</span>

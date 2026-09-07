@@ -187,9 +187,10 @@ p:last-child {
 }
 
 /* Clears the footer emblem (which hangs above the footer) from covering
-   the last content on non-home pages. */
+   the last content on non-home pages. Constant = emblem maximum height,
+   so content can never be overlapped at any screen width. */
 .clear-footer-emblem {
-  padding-bottom: clamp(11rem, 15vw, 14rem);
+  padding-bottom: 160px;
 }
 
 .text-center { text-align: center; }
@@ -1198,6 +1199,14 @@ p:last-child {
 /* --------------------------------------------------------------------------
    Responsive Media Queries
    -------------------------------------------------------------------------- */
+@media (min-width: 1650px) {
+  /* At very wide screens the footer emblem hangs fully outside the content
+     column, so it can never cover content and the clearance can shrink. */
+  .clear-footer-emblem {
+    padding-bottom: 2rem;
+  }
+}
+
 @media (max-width: 1180px) {
   .header-award-badge {
     display: none;

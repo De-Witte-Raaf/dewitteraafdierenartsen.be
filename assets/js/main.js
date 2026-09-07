@@ -61,16 +61,18 @@ function initMobileMenu() {
  * Services Vertical Tabs & Deep Linking
  */
 function initServicesTabs() {
+  const tablist = document.querySelector('.services-tabs-nav');
   const tabButtons = document.querySelectorAll('.service-tab-btn');
   const tabPanes = document.querySelectorAll('.service-pane');
-  if (!tabButtons.length || !tabPanes.length) return;
+  if (!tablist || !tabButtons.length || !tabPanes.length) return;
 
-  function activateTab(slug) {
+  function activateTab(slug, focus) {
     let found = false;
     tabButtons.forEach(btn => {
       const match = btn.dataset.serviceSlug === slug;
       btn.classList.toggle('is-active', match);
       btn.setAttribute('aria-selected', match ? 'true' : 'false');
+      btn.tabIndex = match ? 0 : -1;
       if (match) found = true;
     });
 
@@ -83,12 +85,28 @@ function initServicesTabs() {
     if (!found && tabButtons.length > 0) {
       tabButtons[0].classList.add('is-active');
       tabButtons[0].setAttribute('aria-selected', 'true');
+      tabButtons[0].tabIndex = 0;
       tabPanes[0].classList.add('is-active');
       tabPanes[0].setAttribute('aria-hidden', 'false');
     }
+
+    if (focus) {
+      const active = document.querySelector('.service-tab-btn.is-active');
+      if (active) active.focus();
+    }
   }
 
-  tabButtons.forEach(btn => {
+  function selectSlug(index, focus) {
+    const slug = tabButtons[index].dataset.serviceSlug;
+    activateTab(slug, focus);
+    if (history.pushState) {
+      history.pushState(null, null, `#${slug}`);
+    } else {
+      location.hash = slug;
+    }
+  }
+
+  tabButtons.forEach((btn, i) => {
     btn.addEventListener('click', () => {
       const slug = btn.dataset.serviceSlug;
       activateTab(slug);
@@ -97,6 +115,31 @@ function initServicesTabs() {
       } else {
         location.hash = slug;
       }
+    });
+
+    btn.addEventListener('keydown', (e) => {
+      let next = -1;
+      const count = tabButtons.length;
+      switch (e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+          next = (i + 1) % count;
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          next = (i - 1 + count) % count;
+          break;
+        case 'Home':
+          next = 0;
+          break;
+        case 'End':
+          next = count - 1;
+          break;
+        default:
+          return;
+      }
+      e.preventDefault();
+      selectSlug(next, true);
     });
   });
 

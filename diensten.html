@@ -16,13 +16,14 @@ permalink: /diensten/
   <!-- Spiffy Vertical Tab & Expanding Split Component -->
   <div class="services-layout">
     <!-- Left Navigation Tabs -->
-    <nav class="services-tabs-nav" aria-label="Diensten navigatie">
+    <nav class="services-tabs-nav" aria-label="Diensten navigatie" role="tablist">
       {% assign services = site.services | sort: 'order' %}
       {% for s in services %}
       <button type="button" 
               class="service-tab-btn {% if forloop.first %}is-active{% endif %}" 
               data-service-slug="{{ s.slug }}"
               role="tab"
+              tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
               aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
               aria-controls="pane-{{ s.slug }}"
               id="tab-{{ s.slug }}">

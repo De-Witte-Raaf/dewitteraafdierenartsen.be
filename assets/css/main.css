@@ -192,10 +192,10 @@ p:last-child {
 }
 
 /* Clears the footer emblem (which hangs above the footer) from covering
-   the last content on non-home pages. Constant = emblem maximum height,
-   so content can never be overlapped at any screen width. */
+   the last content on non-home pages. Constant = emblem maximum height
+   plus a small gap, so content is never overlapped at any screen width. */
 .clear-footer-emblem {
-  padding-bottom: 160px;
+  padding-bottom: 176px;
 }
 
 .text-center { text-align: center; }

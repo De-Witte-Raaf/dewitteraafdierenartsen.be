@@ -27,6 +27,10 @@
   <link rel="preload" href="{{ page.preload_image | relative_url }}" as="image" fetchpriority="high">
   {% endif %}
 
+  <!-- MyPets booking widget is loaded post-load, but preconnect shortens the
+       connection setup when it does start downloading. -->
+  <link rel="preconnect" href="https://mypets.eu" crossorigin>
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>

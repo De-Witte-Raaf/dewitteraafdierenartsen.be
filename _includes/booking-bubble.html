@@ -1,3 +1,13 @@
-<!-- MyPets Online Booking Floating Scriptlet -->
+<!-- MyPets Online Booking Floating Scriptlet.
+     The widget script is ~1.4 MB and must not compete with fonts and images in
+     the LCP critical path, so it is injected only after the page has fully
+     loaded (the <mypets-bubble> element is inert until then). -->
 <mypets-bubble defer url-suffix="dapdewitteraaf" web-component-base-url="https://mypets.eu"></mypets-bubble>
-<script src="https://mypets.eu/bubble/mypets-bubble.js" defer></script>
+<script>
+window.addEventListener('load', function () {
+  var s = document.createElement('script');
+  s.src = 'https://mypets.eu/bubble/mypets-bubble.js';
+  s.async = true;
+  document.body.appendChild(s);
+});
+</script>

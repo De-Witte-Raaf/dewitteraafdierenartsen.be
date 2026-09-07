@@ -31,6 +31,37 @@
        connection setup when it does start downloading. -->
   <link rel="preconnect" href="https://mypets.eu" crossorigin>
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <!-- Main Stylesheet (inlined with the @font-face rules so it is no longer
+       a render-blocking request; fonts resolve via their absolute URLs) -->
+  <style>
+    @font-face {
+      font-family: 'Coax';
+      src: url('{{ '/assets/fonts/Coax-Regular.woff2' | relative_url }}') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('{{ '/assets/fonts/Montserrat-Regular.woff2' | relative_url }}') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('{{ '/assets/fonts/Montserrat-SemiBold.woff2' | relative_url }}') format('woff2');
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('{{ '/assets/fonts/Montserrat-Bold.woff2' | relative_url }}') format('woff2');
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    {% include main.css %}
+  </style>
 </head>

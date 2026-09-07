@@ -1,55 +1,15 @@
 /* ==========================================================================
    Dierenartsencentrum De Witte Raaf - Main Stylesheet
    Strict adherence to the official Huisstijlgids (Oddball Branding)
+
+   Located in _includes/ so it can be inlined by head.html (a Liquid include
+   of this very file from _includes/head.html), eliminating the
+   render-blocking stylesheet request. The @font-face declarations live in
+   _includes/head.html alongside their preloads, so their font URL()s resolve
+   per-page (site subpath-safe).
+   NOTE: contains no Liquid tags; this file is NOT rendered as a standalone
+   /assets/css asset.
    ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   Font Face Definitions (Preloaded & Compressed WOFF2)
-   -------------------------------------------------------------------------- */
-@font-face {
-  font-family: 'Coax';
-  src: url('../fonts/Coax-Regular.woff2') format('woff2'),
-       url('../fonts/Coax-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Light.woff2') format('woff2'),
-       url('../fonts/Montserrat-Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Regular.woff2') format('woff2'),
-       url('../fonts/Montserrat-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
-       url('../fonts/Montserrat-SemiBold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Bold.woff2') format('woff2'),
-       url('../fonts/Montserrat-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* --------------------------------------------------------------------------
    CSS Custom Properties (Strict Brand Palette)
@@ -59,7 +19,6 @@
   --color-primary: #014F2B;        /* Donkergroen - Pantone 342 C */
   --color-primary-dark: #00381e;
   --color-primary-light: #0d633c;
-  --color-primary-rgb: 1, 79, 43;
 
   --color-pastel-blue: #D9EEF4;   /* Lichtblauw - Pantone 290 C */
   --color-pastel-pink: #F9CCDB;   /* Roze - Pantone 250 C */
@@ -69,7 +28,6 @@
   --color-white: #FFFFFF;
   --color-surface-warm: #FAFAF7;
   --color-surface-soft: #F2F5EE;
-  --color-surface-card: #FFFFFF;
   --color-text-main: var(--color-primary);
   --color-text-muted: #4A6357;
   --color-border-subtle: rgba(1, 79, 43, 0.12);
@@ -81,7 +39,6 @@
 
   /* Layout & Spacing */
   --max-width: 1200px;
-  --max-width-wide: 1360px;
   --container-padding: 1.5rem;
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -177,15 +134,6 @@ p:last-child {
   padding-right: var(--container-padding);
 }
 
-.container-wide {
-  width: 100%;
-  max-width: var(--max-width-wide);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
-}
-
 .section-padding {
   padding-top: clamp(3rem, 6vw, 5.5rem);
   padding-bottom: clamp(3rem, 6vw, 5.5rem);
@@ -264,16 +212,6 @@ p:last-child {
 .btn-outline:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
-}
-
-.btn-white {
-  background-color: var(--color-white);
-  color: var(--color-primary);
-  box-shadow: var(--shadow-sm);
-}
-.btn-white:hover {
-  background-color: var(--color-pastel-lime);
-  color: var(--color-primary-dark);
 }
 
 .btn-sm {
@@ -440,11 +378,18 @@ p:last-child {
   padding-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
-.hero-grid {
+.hero-grid,
+.about-split,
+.index-about-split {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 3.5rem;
   align-items: center;
+}
+
+.index-about-split {
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
 }
 
 .hero-content {
@@ -516,19 +461,6 @@ p:last-child {
 /* --------------------------------------------------------------------------
    Two-Column Split (Home About + Over Ons Philosophy)
    -------------------------------------------------------------------------- */
-.about-split,
-.index-about-split {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-
-.index-about-split {
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-}
-
 .about-split > *,
 .index-about-split > * {
   min-width: 0;
@@ -750,16 +682,19 @@ p:last-child {
   margin-top: 2.5rem;
 }
 
-.review-card {
+.review-card,
+.team-card {
   background-color: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   display: flex;
   flex-direction: column;
+}
+.review-card {
+  border-radius: var(--radius-md);
+  padding: 2rem;
   justify-content: space-between;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .review-card:hover {
   transform: translateY(-4px);
@@ -844,14 +779,8 @@ p:last-child {
 }
 
 .team-card {
-  background-color: var(--color-white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-border-subtle);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  display: flex;
-  flex-direction: column;
 }
 .team-card:hover {
   transform: translateY(-5px);
@@ -914,7 +843,8 @@ p:last-child {
   margin-top: 2rem;
 }
 
-.contact-info-card {
+.contact-info-card,
+.contact-form-card {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
@@ -954,14 +884,6 @@ p:last-child {
 .hours-emergency {
   color: #c2410c;
   font-weight: 600;
-}
-
-.contact-form-card {
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-border-subtle);
 }
 
 .form-group {
@@ -1033,7 +955,6 @@ p:last-child {
   padding-top: clamp(4.5rem, 7vw, 6rem);
   padding-bottom: 2rem;
   position: relative;
-  overflow: visible;
 }
 
 .footer-emblem {

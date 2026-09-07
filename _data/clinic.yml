@@ -17,7 +17,7 @@ contact:
     city: "Oordegem"
     municipality: "Lede"
     country: "België"
-    maps_url: "https://www.google.com/maps/search/?api=1&query=Wijde+Wereld+2a+9340+Oordegem"
+    maps_url: "https://www.google.com/maps/search/?api=1&query=Dierenartsencentrum+De+Witte+Raaf+9340+Oordegem"
   geo:
     latitude: 50.962147
     longitude: 3.890904
@@ -25,7 +25,7 @@ contact:
 
 social:
   instagram: "https://www.instagram.com/dacdewitteraaf/"
-  facebook: "https://www.facebook.com/dacdewitteraaf"
+  facebook: "https://www.facebook.com/dapdewitteraaf"
 
 opening_hours:
   consultation_note: "Consultaties enkel op afspraak tussen 08:40 en 18:00 (vrijdag tot 17:00)."

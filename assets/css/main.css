@@ -1123,6 +1123,18 @@ p:last-child {
   gap: 1.5rem;
 }
 
+.footer-directory {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.footer-directory a {
+  color: var(--color-pastel-lime);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .footer-bottom {
   display: flex;
   align-items: center;
@@ -1249,6 +1261,11 @@ p:last-child {
     margin-left: auto;
     margin-right: auto;
   }
+  }
+  .footer-directory {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1.6;
   }
 
   .about-split,

@@ -8,12 +8,9 @@
     <div class="footer-main-grid">
       <!-- Column 1: Identity & Vision -->
       <div class="footer-col">
-        <a href="{{ '/' | relative_url }}" aria-label="Home">
-          <img src="{{ '/assets/branding/logos/dewitteraaf_woordmerk_horizontaal_wit.svg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="De Witte Raaf Dierenartsen" class="footer-logo" width="220" height="38">
+        <a href="{{ '/' | relative_url }}" aria-label="Home" class="footer-logo-link">
+          <img src="{{ '/assets/branding/logos/dewitteraaf_woordmerk_horizontaal_wit.svg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="De Witte Raaf Dierenartsen" class="footer-logo">
         </a>
-        <p style="font-size: 1.05rem; font-weight: 500; color: var(--color-pastel-lime); margin-bottom: 0.75rem;">
-          {{ site.data.clinic.tagline }}
-        </p>
         <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem;">
           Persoonlijke, diervriendelijke en hoogwaardige veterinaire zorg voor gezelschapsdieren in Oordegem en omstreken.
         </p>

@@ -1054,9 +1054,14 @@ p:last-child {
 }
 
 .footer-logo {
-  height: 48px;
+  height: 56px;
   width: auto;
-  margin-bottom: 1.25rem;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+.footer-logo-link {
+  display: block;
+}
 .cat-friendly-badge {
   display: block;
   width: 170px;
@@ -1234,7 +1239,13 @@ p:last-child {
   .footer-main-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  .footer-logo-link,
   .cat-friendly-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer-logo {
     margin-left: auto;
     margin-right: auto;
   }

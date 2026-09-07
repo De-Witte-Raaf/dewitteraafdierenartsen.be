@@ -450,7 +450,7 @@ p:last-child {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
 }
 .hero-image-card img {
   width: 100%;

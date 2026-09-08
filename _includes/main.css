@@ -261,39 +261,57 @@ p:last-child {
   box-shadow: var(--shadow-sm);
 }
 
-.header-main {
+.header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+.header-award-badge {
+  margin-left: 0.25rem;
+}
+.header-award-badge picture {
+  display: block;
+  flex: 0 0 102px;
 }
 
-.header-actions {
-  display: none;
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-left: auto;
 }
 
 .brand-link {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 .brand-logo {
   height: 72px;
   width: auto;
   display: block;
 }
+.header-award-badge img {
+  width: 102px;
+  height: 72px;
+  flex: 0 0 102px;
+}
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+}
+.header-cta {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .nav-list {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 .nav-link {
   font-size: 0.98rem;
@@ -301,6 +319,7 @@ p:last-child {
   color: var(--color-primary);
   position: relative;
   padding: 0.35rem 0;
+  white-space: nowrap;
 }
 .nav-link::after {
   content: '';
@@ -330,75 +349,19 @@ p:last-child {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  background: var(--color-white);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-md);
-  padding: 0.45rem 0.9rem;
-  box-shadow: var(--shadow-sm);
-}
-.header-award-badge img {
-  height: 38px;
-  width: auto;
 }
 .header-award-text {
   font-size: 0.72rem;
   font-weight: 700;
   line-height: 1.25;
   color: var(--color-primary);
+  white-space: nowrap;
 }
 .header-award-text span {
   display: block;
   font-weight: 500;
   font-size: 0.65rem;
   color: var(--color-text-muted);
-}
-
-.header-emergency {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  background: var(--color-white);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-md);
-  padding: 0.5rem 0.8rem;
-  color: var(--color-primary);
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-}
-.header-emergency svg {
-  flex: 0 0 auto;
-}
-.header-emergency strong {
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-.header-emergency:hover {
-  border-color: var(--color-primary-light);
-  box-shadow: var(--shadow-sm);
-}
-.header-phone-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: var(--color-white);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-md);
-  padding: 0.5rem 0.75rem;
-  color: var(--color-primary);
-  font-size: 0.82rem;
-  font-weight: 700;
-  white-space: nowrap;
-  text-decoration: none;
-}
-.header-phone-link svg {
-  flex: 0 0 auto;
-}
-.header-phone-link:hover {
-  border-color: var(--color-primary-light);
-  box-shadow: var(--shadow-sm);
 }
 
 /* --------------------------------------------------------------------------
@@ -1182,17 +1145,20 @@ p:last-child {
 /* --------------------------------------------------------------------------
    Responsive Media Queries
    -------------------------------------------------------------------------- */
-@media (min-width: 1650px) {
-  /* At very wide screens the footer emblem hangs fully outside the content
-     column, so it can never cover content and the clearance can shrink. */
+@media (min-width: 1500px) {
+  /* The emblem is anchored to the left edge (~48px in, ~110px wide).
+     The content column starts at (vp - 1200px)/2 + 24px, so it clears the
+     emblem's right edge (~158px) once vp >= ~1483px. From then on the
+     emblem can never cover content and the clearance can shrink. */
   .clear-footer-emblem {
     padding-bottom: 2rem;
   }
 }
 
-@media (max-width: 1180px) {
-  .header-award-badge,
-  .header-emergency {
+@media (max-width: 1150px) {
+  /* The Cat Friendly badge text is the first thing to yield when space runs
+     tight, keeping the inline nav visible that much longer. */
+  .header-award-text {
     display: none;
   }
 }
@@ -1212,7 +1178,9 @@ p:last-child {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 832px) {
+  /* Nav items fold into the hamburger menu once the header row can no longer
+     keep them on one line without clipping (~833px and below). */
   .site-nav {
     display: none;
     position: absolute;
@@ -1231,17 +1199,13 @@ p:last-child {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
   .mobile-toggle {
     display: block;
   }
+}
 
+@media (max-width: 768px) {
   /* Services Mobile Transform: Accordion Style */
   .services-layout {
     grid-template-columns: 1fr;
@@ -1313,8 +1277,27 @@ p:last-child {
   }
 }
 
-@media (max-width: 400px) {
-  .header-phone-link span {
+@media (max-width: 640px) {
+  /* Boek afspraak collapses to its calendar icon (text yields before the
+     Cat Friendly badge pill). */
+  .header-cta-text {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  /* The Cat Friendly badge pill vanishes before the Boek afspraak button. */
+  .header-award-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  /* The icon-only Boek afspraak pill fits down to ~297px (logo 110 + pill
+     55 + toggle 44 + gaps + container padding), so it only disappears once
+     the row genuinely cannot hold it. Only the De Witte Raaf logo and the
+     hamburger remain. */
+  .header-cta {
     display: none;
   }
 }

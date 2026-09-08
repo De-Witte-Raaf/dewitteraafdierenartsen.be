@@ -904,7 +904,8 @@ p:last-child {
 }
 .hours-table td {
   padding: 0.65rem 0;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-width: 0;
 }
 .hours-day {
   font-weight: 600;
@@ -924,7 +925,10 @@ p:last-child {
 .hours-afternoon {
   white-space: nowrap;
 }
-
+.hours-afternoon::before {
+  content: "•";
+  margin-right: 0.35rem;
+}
 .hours-emergency {
   color: #c2410c;
   font-weight: 600;

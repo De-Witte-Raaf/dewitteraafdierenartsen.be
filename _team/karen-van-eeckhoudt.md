@@ -4,7 +4,7 @@ role: "Dierenartsassistente"
 category: "assistenten"
 order: 10
 slug: "karen-van-eeckhoudt"
-photo: "/assets/images/team/karen-van-eeckhoudt.jpg"
+photo: "/assets/images/generated/karen-van-eeckhoudt-800.jpg"
 interests:
   - "Chirurgie"
   - "Hospitaliatie"

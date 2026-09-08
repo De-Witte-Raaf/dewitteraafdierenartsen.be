@@ -4,7 +4,7 @@ role: "Dierenarts"
 category: "dierenartsen"
 order: 5
 slug: "dr-evelien-holvoet"
-photo: "/assets/images/team/dr-evelien-holvoet.jpg"
+photo: "/assets/images/generated/dr-evelien-holvoet-800.jpg"
 accreditation: "Dierenarts Evelien Holvoet, afgestudeerd in 2019 te Gent, België."
 interests:
   - "Voortplanting"

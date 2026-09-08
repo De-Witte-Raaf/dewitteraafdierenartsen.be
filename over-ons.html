@@ -60,13 +60,21 @@ permalink: /over-ons/
     {% for m in members %}
     <article class="team-card" data-category="{{ m.category }}">
       <div class="team-card-image">
-        {% if m.category == 'dierenartsen' %}
-        <img src="{{ '/assets/branding/shapes/dewitteraaf_shape_hond.svg' | relative_url }}" alt="{{ m.name }}" style="padding: 2.5rem; width: 100%; height: 100%; object-fit: contain;">
-        {% elsif m.category == 'assistenten' %}
-        <img src="{{ '/assets/branding/shapes/dewitteraaf_shape_kat.svg' | relative_url }}" alt="{{ m.name }}" style="padding: 2.5rem; width: 100%; height: 100%; object-fit: contain;">
-        {% else %}
-        <img src="{{ '/assets/branding/shapes/dewitteraaf_shape_konijn.svg' | relative_url }}" alt="{{ m.name }}" style="padding: 2.5rem; width: 100%; height: 100%; object-fit: contain;">
-        {% endif %}
+        {%- assign photo_base = '/assets/images/generated/' | append: m.slug -%}
+        <picture>
+          <source type="image/webp"
+            srcset="{{ photo_base | append: '-200.webp' | relative_url }} 200w,
+                    {{ photo_base | append: '-400.webp' | relative_url }} 400w,
+                    {{ photo_base | append: '-800.webp' | relative_url }} 800w"
+            sizes="(min-width: 768px) 300px, 100vw">
+          <img src="{{ photo_base | append: '-400.jpg' | relative_url }}"
+               srcset="{{ photo_base | append: '-200.jpg' | relative_url }} 200w,
+                       {{ photo_base | append: '-400.jpg' | relative_url }} 400w,
+                       {{ photo_base | append: '-800.jpg' | relative_url }} 800w"
+               sizes="(min-width: 768px) 300px, 100vw"
+               alt="{{ m.name }}" width="400" height="267" loading="lazy"
+               style="width: 100%; height: 100%; object-fit: cover;">
+        </picture>
       </div>
 
       <div class="team-card-body">

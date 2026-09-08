@@ -4,7 +4,7 @@ role: "Dierenartsassistente"
 category: "assistenten"
 order: 8
 slug: "tine-cornand"
-photo: "/assets/images/team/tine-cornand.jpg"
+photo: "/assets/images/generated/tine-cornand-800.jpg"
 interests:
   - ""
 education:

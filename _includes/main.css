@@ -823,7 +823,7 @@ p:last-child {
 
 .team-card-image {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 2;
   background-color: var(--color-surface-soft);
   overflow: hidden;
 }

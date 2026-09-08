@@ -4,7 +4,7 @@ role: "Dierenartsassistente"
 category: "assistenten"
 order: 7
 slug: "sofie-van-vynckt"
-photo: "/assets/images/team/sofie-van-vynckt.jpg"
+photo: "/assets/images/generated/sofie-van-vynckt-800.jpg"
 interests:
   - "Kattengedrag"
   - "Dentale RX’en"

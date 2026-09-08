@@ -4,7 +4,7 @@ role: "Dierenartsassistente"
 category: "assistenten"
 order: 9
 slug: "sofie-vermoesen"
-photo: "/assets/images/team/sofie-vermoesen.jpg"
+photo: "/assets/images/generated/sofie-vermoesen-800.jpg"
 interests:
   - "Assistentie bij chirurgie"
   - "Voorbereiding & nazorg van de patiënt"

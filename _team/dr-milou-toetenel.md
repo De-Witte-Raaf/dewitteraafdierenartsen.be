@@ -4,7 +4,7 @@ role: "Dierenarts"
 category: "dierenartsen"
 order: 3
 slug: "dr-milou-toetenel"
-photo: "/assets/images/team/dr-milou-toetenel.jpg"
+photo: "/assets/images/generated/dr-milou-toetenel-800.jpg"
 accreditation: "Dierenarts Milou Toetenel, afgestudeerd in 2016 te Gent, België."
 interests:
   - "Chiropractie"

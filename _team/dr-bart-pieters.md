@@ -4,7 +4,7 @@ role: "Dierenarts / Mede-Eigenaar"
 category: "dierenartsen"
 order: 1
 slug: "dr-bart-pieters"
-photo: "/assets/images/team/dr-bart-pieters.jpg"
+photo: "/assets/images/generated/dr-bart-pieters-800.jpg"
 accreditation: "Dierenarts Dr. Bart Pieters, afgestudeerd in 1992 te Gent, België.Diploma Vakdierenarts Paard behaald in 2003 Gent, België."
 interests:
   - "Weke delenchirurgie"

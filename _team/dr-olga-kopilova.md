@@ -4,7 +4,7 @@ role: "Dierenarts"
 category: "dierenartsen"
 order: 4
 slug: "dr-olga-kopilova"
-photo: "/assets/images/team/dr-olga-kopilova.jpg"
+photo: "/assets/images/generated/dr-olga-kopilova-800.jpg"
 accreditation: "Dierenarts Olga Kopilova, afgestudeerd in 2019 te Gent, België."
 interests:
   - "Interne geneeskunde"

@@ -4,7 +4,7 @@ role: "Dierenartsassistent"
 category: "assistenten"
 order: 11
 slug: "robin-schepens"
-photo: "/assets/images/team/robin-schepens.jpg"
+photo: "/assets/images/generated/robin-schepens-800.jpg"
 interests:
   - "Medische beeldvorming"
   - "Kattengedrag"

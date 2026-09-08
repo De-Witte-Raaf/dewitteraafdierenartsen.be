@@ -4,7 +4,7 @@ role: "Dierenarts"
 category: "dierenartsen"
 order: 6
 slug: "dr-laura-schouppe"
-photo: "/assets/images/team/dr-laura-schouppe.jpg"
+photo: "/assets/images/generated/dr-laura-schouppe-800.jpg"
 accreditation: "Master in de diergeneeskundeAfgestudeerd in 2022 te Gent, België"
 interests:
   - "Dermatologie"

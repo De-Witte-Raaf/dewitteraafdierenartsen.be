@@ -4,7 +4,7 @@ role: "Dierenarts / Mede-Eigenaar"
 category: "dierenartsen"
 order: 2
 slug: "dr-jacqueline-van-der-esch"
-photo: "/assets/images/team/dr-jacqueline-van-der-esch.jpg"
+photo: "/assets/images/generated/dr-jacqueline-van-der-esch-800.jpg"
 accreditation: "Dierenarts Jacqueline van der Esch, afgestudeerd in 2014 te Gent, België.Diploma Vakdierenarts Kleine Huisdieren behaald in 2020 te Gent, België."
 interests:
   - "Interne geneeskunde"

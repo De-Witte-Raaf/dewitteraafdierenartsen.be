@@ -4,7 +4,7 @@ role: "Jobstudent hulp dierenzorg"
 category: "studenten"
 order: 12
 slug: "clara-daese"
-photo: "/assets/images/team/clara-daese.jpg"
+photo: "/assets/images/generated/clara-daese-800.jpg"
 interests:
   - "Cat Friendly Practice"
   - "Assistentie bij chirurgie"

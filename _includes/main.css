@@ -139,9 +139,9 @@ p:last-child {
   padding-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
-/* Clears the footer emblem (which hangs above the footer) from covering
-   the last content on non-home pages. Constant = emblem maximum height
-   plus a small gap, so content is never overlapped at any screen width. */
+/* Clears the footer emblem (which hangs above the footer) from covering the
+   last content of any page. Constant = emblem maximum height plus a small
+   gap, so content is never overlapped at any screen width. */
 .clear-footer-emblem {
   padding-bottom: 176px;
 }

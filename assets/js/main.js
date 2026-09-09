@@ -293,15 +293,20 @@ function initLazyMap() {
 function renderMap(lat, lng, zoom, title, container) {
   if (!window.L) return;
 
+  // Leaflet 1.9.x ignores options passed via attributionControl; the control
+  // is created with a hardcoded "Leaflet" prefix. So create it ourselves with
+  // the prefix disabled while keeping the OpenStreetMap credit.
   const map = L.map(container.id, {
     scrollWheelZoom: false,
-    attributionControl: true
+    attributionControl: false
   }).setView([lat, lng], zoom);
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
   }).addTo(map);
+
+  L.control.attribution({ prefix: false }).addTo(map);
 
   // Custom marker icon using clinic emblem
   const customIcon = L.icon({

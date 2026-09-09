@@ -269,6 +269,9 @@ p:last-child {
   padding-bottom: 0.65rem;
 }
 .header-award-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   flex: 1 1 0;
   min-width: fit-content;
   justify-content: center;
@@ -347,11 +350,6 @@ p:last-child {
   padding: 0.5rem;
 }
 
-.header-award-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
 .header-award-text {
   font-size: 0.72rem;
   font-weight: 700;
@@ -1287,7 +1285,6 @@ p:last-child {
     margin-right: auto;
   }
   .footer-booking-btn {
-    width: auto;
     margin: 0 auto;
   }
   .footer-social-row {
@@ -1319,15 +1316,15 @@ p:last-child {
 }
 
 @media (max-width: 640px) {
-  /* Boek afspraak collapses to its calendar icon (text yields before the
-     Cat Friendly badge pill). */
+  /* Boek afspraak collapses to its calendar icon (the label yields before
+     the Cat Friendly badge). */
   .header-cta-text {
     display: none;
   }
 }
 
 @media (max-width: 560px) {
-  /* The Cat Friendly badge pill vanishes before the Boek afspraak button. */
+  /* The Cat Friendly badge vanishes before the Boek afspraak button. */
   .header-award-badge {
     display: none;
   }

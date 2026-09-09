@@ -59,7 +59,7 @@ layout: default
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border-subtle);">
           {% if page.interests and page.interests.size > 0 %}
           <div>
-            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Bijzondere Interesses</h4>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Bijzondere Interesses</h2>
             <ul style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--color-text-muted);">
               {% for item in page.interests %}
               <li>{{ item }}</li>
@@ -70,7 +70,7 @@ layout: default
 
           {% if page.education and page.education.size > 0 %}
           <div>
-            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Opleidingen & Cursussen</h4>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Opleidingen & Cursussen</h2>
             <ul style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--color-text-muted);">
               {% for item in page.education %}
               <li>{{ item }}</li>
@@ -81,7 +81,7 @@ layout: default
 
           {% if page.pets and page.pets.size > 0 %}
           <div>
-            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Huisdieren Thuis</h4>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Huisdieren Thuis</h2>
             <ul style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--color-text-muted);">
               {% for item in page.pets %}
               <li>{{ item }}</li>

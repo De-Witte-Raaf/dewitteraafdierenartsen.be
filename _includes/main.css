@@ -1066,8 +1066,8 @@ p:last-child {
   color: var(--color-primary-dark);
 }
 .footer-booking-btn {
-  display: block;
-  width: 100%;
+  display: inline-flex;
+  width: auto;
 }
 .footer-social-row {
   display: flex;

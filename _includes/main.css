@@ -269,18 +269,20 @@ p:last-child {
   padding-bottom: 0.65rem;
 }
 .header-award-badge {
-  margin-left: 0.25rem;
+  flex: 1 1 0;
+  min-width: fit-content;
+  justify-content: center;
 }
 .header-award-badge picture {
   display: block;
-  flex: 0 0 102px;
+  flex: 0 0 85px;
 }
 
 .header-right {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-left: auto;
+  margin-left: 0;
 }
 
 .brand-link {
@@ -294,9 +296,9 @@ p:last-child {
   display: block;
 }
 .header-award-badge img {
-  width: 102px;
-  height: 72px;
-  flex: 0 0 102px;
+  width: 85px;
+  height: 60px;
+  flex: 0 0 85px;
 }
 
 .site-nav {
@@ -1328,6 +1330,9 @@ p:last-child {
   /* The Cat Friendly badge pill vanishes before the Boek afspraak button. */
   .header-award-badge {
     display: none;
+  }
+  .header-right {
+    margin-left: auto;
   }
 }
 

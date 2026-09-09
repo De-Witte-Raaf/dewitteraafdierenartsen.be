@@ -24,7 +24,14 @@
   <link rel="preload" href="{{ '/assets/fonts/Montserrat-SemiBold.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/Montserrat-Bold.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 
-  {% if page.preload_image %}
+  {% if page.layout == 'team_member' %}
+  {%- assign photo_base_rel = '/assets/images/generated/' | append: page.slug | relative_url -%}
+  <link rel="preload" href="{{ photo_base_rel | append: '-800.webp' }}" as="image" fetchpriority="high"
+        imagesrcset="{{ photo_base_rel | append: '-400.webp' }} 400w,
+                     {{ photo_base_rel | append: '-800.webp' }} 800w,
+                     {{ photo_base_rel | append: '-1200.webp' }} 1200w"
+        imagesizes="300px">
+  {% elsif page.preload_image %}
   <link rel="preload" href="{{ page.preload_image | relative_url }}" as="image" fetchpriority="high">
   {% endif %}
 

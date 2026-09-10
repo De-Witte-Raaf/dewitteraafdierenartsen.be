@@ -1,18 +1,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Dark mode: set data-theme before first paint to avoid FOUC -->
-  <meta name="color-scheme" content="light dark">
-  <script>
-    (function() {
-      var t = localStorage.getItem('theme');
-      if (t === 'dark' || t === 'light') {
-        document.documentElement.dataset.theme = t;
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.dataset.theme = 'dark';
-      }
-    })();
-  </script>
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} – {{ site.tagline }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">

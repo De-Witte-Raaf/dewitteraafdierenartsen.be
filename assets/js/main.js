@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initServicesTabs();
   initContactForm();
   initLazyMap();
-  initThemeToggle();
 });
 
 /**
@@ -379,37 +378,4 @@ function renderMap(lat, lng, zoom, title, container) {
       </a>
     </div>
   `);
-}
-
-/**
- * Theme toggle — sun/moon button with localStorage + system preference.
- * The pre-paint script in head.html sets the initial data-theme attribute;
- * this function wires up the interactive toggle and follows OS changes
- * when the user has no explicit preference.
- */
-function initThemeToggle() {
-  const btn = document.querySelector('.theme-toggle');
-  if (!btn) return;
-
-  const mq = window.matchMedia('(prefers-color-scheme: dark)');
-
-  const apply = (theme) => {
-    document.documentElement.dataset.theme = theme;
-  };
-
-  const saved = localStorage.getItem('theme');
-
-  // Follow OS live only when no explicit preference is saved
-  if (!saved) {
-    mq.addEventListener('change', (e) => {
-      apply(e.matches ? 'dark' : 'light');
-    });
-  }
-
-  btn.addEventListener('click', () => {
-    const current = document.documentElement.dataset.theme;
-    const next = current === 'dark' ? 'light' : 'dark';
-    apply(next);
-    localStorage.setItem('theme', next);
-  });
 }

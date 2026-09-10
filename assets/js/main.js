@@ -215,8 +215,25 @@ function initContactForm() {
 
       if (response.ok) {
         if (statusEl) {
+          statusEl.style.display = '';
           statusEl.className = 'form-status success';
-          statusEl.textContent = 'Hartelijk dank voor uw bericht! We nemen spoedig contact met u op.';
+          statusEl.textContent = 'Bericht verstuurd, we reageren hier zo snel mogelijk op.';
+          if (!statusEl.querySelector('.form-reset')) {
+            const resetBtn = document.createElement('button');
+            resetBtn.type = 'button';
+            resetBtn.className = 'btn btn-outline btn-sm form-reset';
+            resetBtn.style.cssText = 'margin-top: 0.75rem; display: block;';
+            resetBtn.textContent = '↺ Nog een bericht sturen';
+            resetBtn.addEventListener('click', () => {
+              form.reset();
+              statusEl.style.display = 'none';
+              statusEl.className = 'form-status';
+              statusEl.textContent = '';
+              const nameField = form.querySelector('#contact-name');
+              if (nameField) nameField.focus();
+            });
+            statusEl.appendChild(resetBtn);
+          }
         }
         form.reset();
       } else {
@@ -225,6 +242,7 @@ function initContactForm() {
     } catch (err) {
       console.error('Contact form submission error:', err);
       if (statusEl) {
+        statusEl.style.display = '';
         statusEl.className = 'form-status error';
         statusEl.textContent = 'Er trad een fout op bij het verzenden. U kan ons ook rechtstreeks bellen op 09/352.53.54 of mailen naar dac@dewitteraafdierenartsen.be.';
       }

@@ -21,7 +21,7 @@
     s.async = true;
     document.body.appendChild(s);
   }
-  var events = ['mouseover', 'pointerdown', 'touchstart', 'keydown', 'scroll', 'focusin'];
+  var events = ['mouseover', 'pointerdown', 'touchstart', 'keydown', 'focusin'];
   events.forEach(function (type) {
     document.addEventListener(type, load, { once: true, capture: true, passive: true });
   });

@@ -177,6 +177,45 @@ function initContactForm() {
     emailInput.addEventListener('input', syncReplyTo);
   }
 
+  // Field-level validation with friendly Dutch messages.
+  const phoneInput = form.querySelector('input[name="phone"]');
+  const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+  const EUROPEAN_CC =
+    '350|351|352|353|354|355|356|357|358|359|370|371|372|373|374|375|376|377|378|' +
+    '380|381|382|383|385|386|387|389|420|421|423|30|31|32|33|34|36|39|40|41|43|44|45|46|47|48|49';
+  const isValidEuropeanPhone = (value) => {
+    const compact = value.replace(/[.()\s/-]/g, '');
+    const european = new RegExp('^(?:\\+|00)(?:' + EUROPEAN_CC + ')\\d{6,12}$');
+    if (european.test(compact)) return true;
+    return /^0?\d{8,10}$/.test(compact);
+  };
+
+  if (emailInput) {
+    const validateEmail = () => {
+      if (emailInput.value.trim() === '') {
+        emailInput.setCustomValidity('');
+      } else if (!isValidEmail(emailInput.value)) {
+        emailInput.setCustomValidity('Voer een geldig e-mailadres in (bijv. naam@voorbeeld.be).');
+      } else {
+        emailInput.setCustomValidity('');
+      }
+    };
+    emailInput.addEventListener('input', validateEmail);
+  }
+
+  if (phoneInput) {
+    const validatePhone = () => {
+      if (phoneInput.value.trim() === '') {
+        phoneInput.setCustomValidity('');
+      } else if (!isValidEuropeanPhone(phoneInput.value)) {
+        phoneInput.setCustomValidity('Voer een geldig Europees telefoonnummer in (bijv. 0470 12 34 56, +32 470 12 34 56 of +44 20 7946 0958).');
+      } else {
+        phoneInput.setCustomValidity('');
+      }
+    };
+    phoneInput.addEventListener('input', validatePhone);
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 

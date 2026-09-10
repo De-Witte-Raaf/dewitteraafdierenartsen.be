@@ -229,22 +229,6 @@ function initContactForm() {
           statusEl.style.display = '';
           statusEl.className = 'form-status success';
           statusEl.textContent = 'Bericht verstuurd, we reageren hier zo snel mogelijk op.';
-          if (!statusEl.querySelector('.form-reset')) {
-            const resetBtn = document.createElement('button');
-            resetBtn.type = 'button';
-            resetBtn.className = 'btn btn-outline btn-sm form-reset';
-            resetBtn.style.cssText = 'margin-top: 0.75rem; display: block;';
-            resetBtn.textContent = '↺ Nog een bericht sturen';
-            resetBtn.addEventListener('click', () => {
-              form.reset();
-              statusEl.style.display = 'none';
-              statusEl.className = 'form-status';
-              statusEl.textContent = '';
-              const nameField = form.querySelector('#contact-name');
-              if (nameField) nameField.focus();
-            });
-            statusEl.appendChild(resetBtn);
-          }
         }
         form.reset();
       } else {

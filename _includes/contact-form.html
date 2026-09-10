@@ -1,4 +1,4 @@
-<form id="contact-form" action="https://forms.formward.eu/f/72ef4839-c7ad-418a-adb3-a68e701d3af8" method="POST" class="contact-form">
+<form id="contact-form" action="https://forms.formward.eu/f/72ef4839-c7ad-418a-adb3-a68e701d3af8" method="POST" class="contact-form" novalidate>
   <!-- Anti-Spam Honeypot (Invisible to real humans, traps bots) -->
   <div class="form-honeypot" aria-hidden="true">
     <label for="contact-gotcha">Laat dit veld leeg:</label>
@@ -11,17 +11,20 @@
   <div class="form-group">
     <label for="contact-name" class="form-label">Uw Naam *</label>
     <input type="text" id="contact-name" name="name" class="form-control" required placeholder="bijv. Jan Jansen" autocomplete="name">
+    <span class="field-error" id="contact-name-error" data-for="name" aria-live="polite"></span>
   </div>
 
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
     <div class="form-group">
       <label for="contact-email" class="form-label">E-mailadres *</label>
       <input type="email" id="contact-email" name="email" class="form-control" required placeholder="naam@voorbeeld.be" autocomplete="email">
+      <span class="field-error" id="contact-email-error" data-for="email" aria-live="polite"></span>
     </div>
 
     <div class="form-group">
       <label for="contact-phone" class="form-label">Telefoonnummer *</label>
       <input type="tel" id="contact-phone" name="phone" class="form-control" required placeholder="0470 12 34 56" autocomplete="tel" inputmode="tel">
+      <span class="field-error" id="contact-phone-error" data-for="phone" aria-live="polite"></span>
     </div>
   </div>
 
@@ -35,18 +38,21 @@
       <option value="Stageplaats of sollicitatie">Stageplaats of sollicitatie</option>
       <option value="Andere vraag">Andere vraag</option>
     </select>
+    <span class="field-error" id="contact-subject-error" data-for="subject" aria-live="polite"></span>
   </div>
 
   <div class="form-group">
     <label for="contact-message" class="form-label">Uw Bericht *</label>
     <textarea id="contact-message" name="message" class="form-control" rows="5" required placeholder="Beschrijf uw vraag of bestelling (bij voeding: merk, type en gewicht)..."></textarea>
+    <span class="field-error" id="contact-message-error" data-for="message" aria-live="polite"></span>
   </div>
 
   <div class="form-group" style="margin-top: 1rem;">
     <label style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.85rem; color: var(--color-text-muted); cursor: pointer;">
-      <input type="checkbox" name="_consent" required style="margin-top: 0.2rem;">
-      <span>Ik ga ermee akkoord dat mijn gegevens worden verwerkt om contact met mij op te nemen conform het <a href="{{ '/privacy-policy/' | relative_url }}" target="_blank" style="text-decoration: underline; color: var(--color-primary);">privacybeleid</a>. *</span>
+      <input type="checkbox" name="_consent" id="contact-consent" required style="margin-top: 0.2rem;">
+      <span>Ik ga ermee akkoord dat mijn gegevens worden verwerkt om contact met mij op te nemen conform het <a href="{{ '/privacy-policy/' | relative_url }}" target="_blank" style="text-decoration: underline; color: var(--color-text-main);">privacybeleid</a>. *</span>
     </label>
+    <span class="field-error" id="contact-consent-error" data-for="_consent" aria-live="polite"></span>
   </div>
 
   <div style="margin-top: 1.5rem;">

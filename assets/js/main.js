@@ -169,17 +169,17 @@ function initContactForm() {
   // Keep the _replyto hidden field in sync with the visitor's email so the
   // practice can hit Reply and answer directly.
   const emailInput = form.querySelector('input[name="email"]');
+  const phoneInput = form.querySelector('input[name="phone"]');
   const replyTo = form.querySelector('input[name="_replyto"]');
+  const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
   if (emailInput && replyTo) {
     const syncReplyTo = () => {
-      replyTo.value = emailInput.checkValidity() ? emailInput.value.trim() : '';
+      replyTo.value = isValidEmail(emailInput.value) ? emailInput.value.trim() : '';
     };
     emailInput.addEventListener('input', syncReplyTo);
   }
 
-  // Field-level validation with friendly Dutch messages.
-  const phoneInput = form.querySelector('input[name="phone"]');
-  const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+  // Field-level validation with inline error messages (no browser popups).
   const EUROPEAN_CC =
     '350|351|352|353|354|355|356|357|358|359|370|371|372|373|374|375|376|377|378|' +
     '380|381|382|383|385|386|387|389|420|421|423|30|31|32|33|34|36|39|40|41|43|44|45|46|47|48|49';
@@ -190,34 +190,79 @@ function initContactForm() {
     return /^0?\d{8,10}$/.test(compact);
   };
 
-  if (emailInput) {
-    const validateEmail = () => {
-      if (emailInput.value.trim() === '') {
-        emailInput.setCustomValidity('');
-      } else if (!isValidEmail(emailInput.value)) {
-        emailInput.setCustomValidity('Voer een geldig e-mailadres in (bijv. naam@voorbeeld.be).');
-      } else {
-        emailInput.setCustomValidity('');
-      }
-    };
-    emailInput.addEventListener('input', validateEmail);
-  }
+  const validators = {
+    name: (el) => (el.value.trim() !== '' ? '' : 'Gelieve uw naam in te vullen.'),
+    email: (el) => {
+      if (el.value.trim() === '') return 'Gelieve uw e-mailadres in te vullen.';
+      if (!isValidEmail(el.value)) return 'Voer een geldig e-mailadres in (bijv. naam@voorbeeld.be).';
+      return '';
+    },
+    phone: (el) => {
+      if (el.value.trim() === '') return 'Gelieve uw telefoonnummer in te vullen.';
+      if (!isValidEuropeanPhone(el.value)) return 'Voer een geldig Europees telefoonnummer in (bijv. 0470 12 34 56, +32 470 12 34 56 of +44 20 7946 0958).';
+      return '';
+    },
+    subject: (el) => (el.value !== '' ? '' : 'Kies een onderwerp.'),
+    message: (el) => (el.value.trim() !== '' ? '' : 'Gelieve uw bericht in te vullen.'),
+    _consent: (el) => (el.checked ? '' : 'U moet akkoord gaan met het privacybeleid.')
+  };
 
-  if (phoneInput) {
-    const validatePhone = () => {
-      if (phoneInput.value.trim() === '') {
-        phoneInput.setCustomValidity('');
-      } else if (!isValidEuropeanPhone(phoneInput.value)) {
-        phoneInput.setCustomValidity('Voer een geldig Europees telefoonnummer in (bijv. 0470 12 34 56, +32 470 12 34 56 of +44 20 7946 0958).');
-      } else {
-        phoneInput.setCustomValidity('');
-      }
+  // Show/hide an inline error for one field
+  const setFieldError = (fieldName, message, field) => {
+    const errorEl = form.querySelector('.field-error[data-for="' + fieldName + '"]');
+    if (!errorEl) return;
+    if (typeof message === 'string' && message) {
+      errorEl.textContent = message;
+      errorEl.classList.add('is-visible');
+      if (field) field.classList.add('is-invalid');
+    } else {
+      errorEl.textContent = '';
+      errorEl.classList.remove('is-visible');
+      if (field) field.classList.remove('is-invalid');
+    }
+  };
+
+  const clearAllErrors = () => {
+    form.querySelectorAll('.field-error').forEach((el) => {
+      el.textContent = '';
+      el.classList.remove('is-visible');
+    });
+    form.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+  };
+
+  // Errors only appear after the submit button is pressed; before that,
+  // input changes never surface a message.
+  let validationActive = false;
+
+  // Re-validate a single field on input/change, clearing its error once fixed
+  Object.keys(validators).forEach((name) => {
+    const field = form.querySelector('[name="' + name + '"]');
+    if (!field) return;
+    const revalidate = () => {
+      if (!validationActive) return;
+      setFieldError(name, validators[name](field), field);
     };
-    phoneInput.addEventListener('input', validatePhone);
-  }
+    field.addEventListener('input', revalidate);
+    field.addEventListener('change', revalidate);
+  });
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // 0. Client-side field validation — shows inline errors under each field
+    validationActive = true;
+    let firstInvalid = null;
+    Object.entries(validators).forEach(([name, validate]) => {
+      const field = form.querySelector('[name="' + name + '"]');
+      if (!field) return;
+      const message = validate(field);
+      setFieldError(name, message, field);
+      if (message && !firstInvalid) firstInvalid = field;
+    });
+    if (firstInvalid) {
+      firstInvalid.focus({ preventScroll: true });
+      return;
+    }
 
     // 1. Anti-Spam Check: Honeypot trap
     const honeypot = form.querySelector('input[name="_gotcha"]');
@@ -228,6 +273,8 @@ function initContactForm() {
         statusEl.className = 'form-status success';
         statusEl.textContent = 'Hartelijk dank voor uw bericht! We nemen spoedig contact met u op.';
       }
+      clearAllErrors();
+      validationActive = false;
       form.reset();
       return;
     }
@@ -269,6 +316,8 @@ function initContactForm() {
           statusEl.className = 'form-status success';
           statusEl.textContent = 'Bericht verstuurd, we reageren hier zo snel mogelijk op.';
         }
+        clearAllErrors();
+        validationActive = false;
         form.reset();
       } else {
         throw new Error('Server antwoordde niet met 200 OK');

@@ -56,17 +56,17 @@ permalink: /contact/
       </table>
 
       <!-- Emergency Section -->
-      <div style="background-color: var(--color-surface-soft); border-radius: var(--radius-md); padding: 1.5rem; margin-top: 2rem; border-left: 4px solid #ea580c;">
-        <h3 style="color: #c2410c; font-size: 1.25rem; margin-bottom: 0.5rem;">{{ site.data.clinic.emergency.title }}</h3>
+      <div style="background-color: var(--color-surface-soft); border-radius: var(--radius-md); padding: 1.5rem; margin-top: 2rem; border-left: 4px solid var(--color-emergency-bg);">
+        <h3 style="color: var(--color-emergency-text); font-size: 1.25rem; margin-bottom: 0.5rem;">{{ site.data.clinic.emergency.title }}</h3>
         <p style="font-size: 0.92rem; color: var(--color-text-main); margin-bottom: 1rem;">
           {{ site.data.clinic.emergency.text }}
         </p>
-        <a href="tel:{{ site.data.clinic.contact.emergency_phone_clean }}" class="btn btn-primary btn-sm" style="background-color: #c2410c; border-color: #c2410c;">
+        <a href="tel:{{ site.data.clinic.contact.emergency_phone_clean }}" class="btn btn-primary btn-sm" style="background-color: var(--color-emergency-bg); border-color: var(--color-emergency-bg);">
           🚨 Bel Spoed: 09/352.53.54
         </a>
 
         <div style="margin-top: 1.25rem;">
-          <strong style="font-size: 0.85rem; color: var(--color-primary); display: block; margin-bottom: 0.5rem;">Wanneer onmiddellijk bellen?</strong>
+          <strong style="font-size: 0.85rem; color: var(--color-text-main); display: block; margin-bottom: 0.5rem;">Wanneer onmiddellijk bellen?</strong>
           <ul style="font-size: 0.82rem; color: var(--color-text-muted); padding-left: 1.2rem; display: grid; gap: 0.35rem;">
             {% for s in site.data.clinic.emergency.symptoms limit: 5 %}
             <li>{{ s }}</li>

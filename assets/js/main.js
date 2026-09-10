@@ -166,6 +166,17 @@ function initContactForm() {
   const statusEl = document.querySelector('#form-status');
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  // Keep the _replyto hidden field in sync with the visitor's email so the
+  // practice can hit Reply and answer directly.
+  const emailInput = form.querySelector('input[name="email"]');
+  const replyTo = form.querySelector('input[name="_replyto"]');
+  if (emailInput && replyTo) {
+    const syncReplyTo = () => {
+      replyTo.value = emailInput.checkValidity() ? emailInput.value.trim() : '';
+    };
+    emailInput.addEventListener('input', syncReplyTo);
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 

@@ -33,7 +33,14 @@
                      {{ photo_base_rel | append: '-1200.webp' }} 1200w"
         imagesizes="(min-width: 841px) 300px, calc(100vw - 48px)">
   {% elsif page.preload_image %}
-  <link rel="preload" href="{{ page.preload_image | relative_url }}" as="image" fetchpriority="high"{% if page.preload_srcset %} imagesrcset="{{ page.preload_srcset }}" imagesizes="{{ page.preload_sizes }}"{% endif %}>
+  {%- capture preload_srcset -%}
+  {%- for cand in page.preload_srcset | split: ',' -%}
+    {%- assign cu = cand | strip | split: ' ' | first -%}
+    {%- assign cw = cand | strip | split: ' ' | last -%}
+    {{ cu | relative_url }} {{ cw }}{% unless forloop.last %}, {% endunless %}
+  {%- endfor -%}
+  {%- endcapture -%}
+  <link rel="preload" href="{{ page.preload_image | relative_url }}" as="image" fetchpriority="high"{% if page.preload_srcset %} imagesrcset="{{ preload_srcset | strip }}" imagesizes="{{ page.preload_sizes }}"{% endif %}>
   {% endif %}
 
   <!-- Main Stylesheet (inlined with the @font-face rules so it is no longer
